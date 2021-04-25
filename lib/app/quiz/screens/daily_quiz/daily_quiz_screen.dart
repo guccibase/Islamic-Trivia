@@ -29,7 +29,7 @@ class DailyQuizScreen extends StatelessWidget {
             context: context,
             title: i,
             subTile: '1 Question',
-            imageLink: ImageLinks().sport,
+            imageLink: ImageLinks().basmalah,
             question: 10),
       );
     }

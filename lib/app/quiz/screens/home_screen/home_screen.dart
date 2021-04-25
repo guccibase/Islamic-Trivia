@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inner_drawer/inner_drawer.dart';
 import 'package:islamic_trivia/app/quiz/screens/battle_quiz/init_battle_screen.dart';
@@ -9,6 +8,7 @@ import 'package:islamic_trivia/app/quiz/screens/leaderboard/leaderboard_screen.d
 import 'package:islamic_trivia/data_source/assets_link/src/icon_links.dart';
 import 'package:islamic_trivia/data_source/assets_link/src/image_links.dart';
 import 'package:islamic_trivia/generated/l10n.dart';
+import 'package:islamic_trivia/widget/main_button.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
 class QuizHomeScreen extends StatefulWidget {
@@ -78,14 +78,14 @@ class _QuizHomeScreenState extends State<QuizHomeScreen>
                   ])),
           child: Image.asset(ImageLinks().quizMain),
         ),
-        _buttonMain(
+        buttonMain(
             context: context,
             text: S.current.play_quiz,
             navigatorTo: CategoryQuizScreen()),
         SizedBox(
           height: 10,
         ),
-        _buttonMain(
+        buttonMain(
             context: context,
             text: S.current.battle_quiz,
             navigatorTo: InitBattleScreen(
@@ -94,14 +94,14 @@ class _QuizHomeScreenState extends State<QuizHomeScreen>
         SizedBox(
           height: 10,
         ),
-        _buttonMain(
+        buttonMain(
             context: context,
             text: S.current.daily_quiz,
             navigatorTo: DailyQuizScreen()),
         SizedBox(
           height: 20,
         ),
-        _buttonMain(
+        buttonMain(
             context: context,
             text: S.current.leader_board,
             navigatorTo: DailyQuizScreen()),
@@ -204,46 +204,8 @@ class _QuizHomeScreenState extends State<QuizHomeScreen>
     );
   }
 
-  _buttonMain({BuildContext context, String text, Widget navigatorTo}) {
-    return Container(
-      height: MediaQuery.of(context).size.height / 10.4,
-      margin: EdgeInsets.symmetric(horizontal: 20),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(25),
-          color: Theme.of(context).backgroundColor,
-          boxShadow: [
-            BoxShadow(
-                color: Theme.of(context).shadowColor,
-                offset: Offset(2, 2),
-                blurRadius: 4)
-          ]),
-      child: FlatButton(
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => navigatorTo));
-        },
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(25),
-        ),
-        child: Row(
-          children: [
-            Expanded(
-                flex: 2,
-                child: Align(
-                  child: AutoSizeText(
-                    text,
-                    maxLines: 1,
-                    minFontSize: 12,
-                    style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w600,
-                        color: Color(0xff0031B0)),
-                  ),
-                )),
-          ],
-        ),
-      ),
-    );
+  buttonMain({BuildContext context, String text, Widget navigatorTo}) {
+    return MainButton(text: text, navigatorTo: navigatorTo);
   }
 
   _itemOptionDrawer(

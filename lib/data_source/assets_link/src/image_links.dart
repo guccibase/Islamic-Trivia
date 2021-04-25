@@ -16,18 +16,23 @@ class ImageLinks {
   final String battleQuiz = "assets/images/battle_quiz.png";
   final String playQuiz = "assets/images/play_quiz.png";
   final String quizMain = "assets/images/quiz_main.png";
-  final String animals = "assets/images/animals.jpg";
-  final String art = "assets/images/art.jpg";
-  final String astronomy = "assets/images/astronomy.jpg";
-  final String movie = "assets/images/movie.jpg";
-  final String music = "assets/images/music.jpg";
-  final String nature = "assets/images/nature.jpg";
-  final String people = "assets/images/peple.jpg";
   final String quiz = "assets/images/quiz.png";
-  final String science = "assets/images/science.jpg";
-  final String sport = "assets/images/sport.jpg";
   final String thank = "assets/images/thank.gif";
   final String thanks = "assets/images/thanks.png";
-
-
+  final String basmalah = "assets/images/basmala.png";
+  final String basmalah1 = "assets/images/basmala.png";
+  final String basmalah2 = "assets/images/basmala.png";
+  final String basmalah3 = "assets/images/basmala.png";
+  final String basmalah4 = "assets/images/basmala.png";
+  final String basmalah5 = "assets/images/basmala.png";
+  final String basmalah6 = "assets/images/basmala.png";
+  final String basmalah7 = "assets/images/basmala.png";
+  final String basmalah8 = "assets/images/basmala.png";
+  final String basmalah9 = "assets/images/basmala.png";
+  final String basmalah10 = "assets/images/basmala.png";
+  final String basmalah11 = "assets/images/basmala.png";
+  final String basmalah12 = "assets/images/basmala.png";
+  final String basmalah13 = "assets/images/basmala.png";
+  final String basmalah14 = "assets/images/basmala.png";
+  final String basmalah15 = "assets/images/bismillah-purple.png";
 }

@@ -89,7 +89,7 @@ class _QuizPlayScreenState extends State<QuizPlayScreen> {
                 ),
               ),
               Text(
-                "/${list.length}",
+                "/${widget.totalQuestions}",
                 style: TextStyle(fontSize: 15),
               ),
             ],
@@ -99,7 +99,7 @@ class _QuizPlayScreenState extends State<QuizPlayScreen> {
           padding: const EdgeInsets.only(top: 20),
           child: ProgressQuestion(
             count: question,
-            questionLength: list.length,
+            questionLength: widget.totalQuestions,
           ),
         ),
         Expanded(
@@ -115,13 +115,13 @@ class _QuizPlayScreenState extends State<QuizPlayScreen> {
                     listQuiz: list[index],
                     onSelected: (val) {
                       onSelected(
-                          length: list.length,
+                          length: widget.totalQuestions,
                           val: val,
                           duration: Duration(milliseconds: 800));
                     },
                     onSkip: () {
                       onSelected(
-                          length: list.length,
+                          length: widget.totalQuestions,
                           val: false,
                           duration: Duration(milliseconds: 10));
                     },

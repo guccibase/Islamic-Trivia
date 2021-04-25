@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islamic_trivia/app/quiz/screens/quiz_play/quiz_play_screen.dart';
 import 'package:islamic_trivia/data_source/assets_link/assets_links.dart';
 import 'package:islamic_trivia/generated/l10n.dart';
+import 'package:islamic_trivia/widget/main_button.dart';
 
 class LevelsScreen extends StatelessWidget {
   final String title;
@@ -23,27 +24,71 @@ class LevelsScreen extends StatelessWidget {
   }
 
   _bodyMain(BuildContext context) {
-    return ListView(
-      shrinkWrap: true,
-      physics: ClampingScrollPhysics(),
-      children: List.generate(10, (index) {
-        if (index == 0) {
-          return _rowItemLevel(
-              context: context, index: index, isComplete: true, unlocked: true);
-        } else if (index == 1) {
-          return _rowItemLevel(
-              context: context,
-              index: index,
-              isComplete: false,
-              unlocked: true);
-        } else {
-          return _rowItemLevel(
-              context: context,
-              index: index,
-              isComplete: false,
-              unlocked: false);
-        }
-      }),
+    return Container(
+      // width: MediaQuery.of(context).size.width,
+      // height: MediaQuery.of(context).size.height,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Topic - '),
+              Text('Qur\'an'),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Text(
+                'Anything that is related to the Quran, from its content,'
+                ' to its revelation or its reasons, to the virtues of the surahs,'
+                ' or anything related to the Quran in any way.'),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text('Number of questions - '),
+                Text(' 5 '),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text('Maximum points attainable - '),
+                Text('150 Points'),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text('Minimum points required - '),
+                Text('100 Points'),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: MainButton(
+              text: 'Start',
+              navigatorTo: QuizPlayScreen(
+                totalQuestions: 5,
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 
