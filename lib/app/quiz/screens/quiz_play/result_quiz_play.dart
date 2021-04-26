@@ -4,10 +4,16 @@ import 'package:islamic_trivia/generated/l10n.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 class ResultQuizPlay extends StatefulWidget {
-  final int correct;
-  final int length;
+  final int numberOfQuestions;
+  final int totalPoints;
   final int competitorCorrect;
-  ResultQuizPlay({Key key, this.correct, this.length, this.competitorCorrect})
+  final int acquiredPoints;
+  ResultQuizPlay(
+      {Key key,
+      this.numberOfQuestions,
+      this.totalPoints,
+      this.competitorCorrect,
+      this.acquiredPoints})
       : super(key: key);
 
   @override
@@ -73,7 +79,7 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
                   left: 60,
                   right: 60,
                   bottom: 180,
-                  child: widget.length != null
+                  child: widget.numberOfQuestions != null
                       ? _playQuizResult(context)
                       : _battleQuizResult(context)),
               Positioned(
@@ -152,9 +158,9 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
             animation: true,
             animationDuration: 1000,
             lineWidth: 35.0,
-            percent: widget.correct / widget.length,
+            percent: widget.acquiredPoints / widget.totalPoints,
             center: new Text(
-              "${widget.correct}/${widget.length}",
+              "${widget.acquiredPoints}/${widget.totalPoints}",
               style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
             ),
             circularStrokeCap: CircularStrokeCap.round,

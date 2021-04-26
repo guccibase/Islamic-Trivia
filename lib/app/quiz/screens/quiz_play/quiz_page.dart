@@ -122,18 +122,19 @@ class _QuizPageState extends State<QuizPage> {
         onPressed: isAnswer
             ? () {}
             : () {
-                setState(() {
-                  isAnswer = true;
-                  isClicks[index] = true;
-                });
-
                 if (index == widget.listQuiz.rightAnswer.answer) {
                   audioCache.play("sounds/true.mp3");
+                  widget.onSelected(true);
+                  isAnswer = true;
                 } else {
                   audioCache.play("sounds/false.mp3");
+                  widget.onSelected(false);
+                  isAnswer = false;
                 }
 
-                widget.onSelected(index == widget.listQuiz.rightAnswer.answer);
+                setState(() {
+                  isClicks[index] = true;
+                });
               },
         child: Stack(
           children: [

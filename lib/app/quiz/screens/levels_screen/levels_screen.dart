@@ -84,6 +84,7 @@ class LevelsScreen extends StatelessWidget {
               text: 'Start',
               navigatorTo: QuizPlayScreen(
                 totalQuestions: 5,
+                totalPoints: 150,
               ),
             ),
           )

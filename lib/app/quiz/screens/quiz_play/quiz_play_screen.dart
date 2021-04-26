@@ -12,8 +12,10 @@ import 'result_quiz_play.dart';
 
 class QuizPlayScreen extends StatefulWidget {
   final int totalQuestions;
+  final int totalPoints;
 
-  const QuizPlayScreen({Key key, this.totalQuestions}) : super(key: key);
+  const QuizPlayScreen({Key key, this.totalQuestions, this.totalPoints})
+      : super(key: key);
   @override
   _QuizPlayScreenState createState() => _QuizPlayScreenState();
 }
@@ -22,6 +24,8 @@ class _QuizPlayScreenState extends State<QuizPlayScreen> {
   PageViewHolder holder;
   PageController _pageController = PageController(initialPage: 0);
   int question = 1;
+  int points = 0;
+  bool wrongAnswer = false;
   GlobalKey<CountdownProgressState> countDownKey =
       GlobalKey<CountdownProgressState>();
   List<bool> answers = [];
@@ -79,18 +83,41 @@ class _QuizPlayScreenState extends State<QuizPlayScreen> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                "${S.current.question} $question",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    "${S.current.question} $question",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    "/${widget.totalQuestions}",
+                    style: TextStyle(fontSize: 15),
+                  ),
+                ],
               ),
-              Text(
-                "/${widget.totalQuestions}",
-                style: TextStyle(fontSize: 15),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    "${S.current.points} $points",
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: wrongAnswer ? Colors.red : null),
+                  ),
+                  Text(
+                    "/${widget.totalPoints}",
+                    style: TextStyle(
+                      fontSize: 15,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
@@ -134,33 +161,49 @@ class _QuizPlayScreenState extends State<QuizPlayScreen> {
   }
 
   onSelected({int length, bool val, Duration duration}) {
-    if (question < length) {
-      Future.delayed(duration, () {
-        _pageController.nextPage(
-            duration: Duration(milliseconds: 700), curve: Curves.ease);
-        setState(() {
-          question++;
+    if (val == true) {
+      points += 30;
+
+      if (question < length) {
+        Future.delayed(duration, () {
+          _pageController.nextPage(
+              duration: Duration(milliseconds: 700), curve: Curves.ease);
+          setState(() {
+            question++;
+          });
+          answers.add(val);
+          countDownKey.currentState.reSetTime();
         });
+      } else {
+        countDownKey.currentState.cancelTime();
         answers.add(val);
-        countDownKey.currentState.reSetTime();
-      });
-    } else {
-      countDownKey.currentState.cancelTime();
-      answers.add(val);
-      int correct = 0;
-      for (var x in answers) {
-        if (x) {
-          correct++;
+
+        int correct = 0;
+        for (var x in answers) {
+          if (x) {
+            correct++;
+          }
         }
+        Future.delayed(Duration(milliseconds: 500), () {
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => ResultQuizPlay(
+                      acquiredPoints: points,
+                      numberOfQuestions: length,
+                      totalPoints: widget.totalPoints)));
+        });
       }
-      Future.delayed(Duration(milliseconds: 500), () {
-        Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-                builder: (context) => ResultQuizPlay(
-                      correct: correct,
-                      length: length,
-                    )));
+    } else {
+      points -= 10;
+      setState(() {
+        wrongAnswer = !wrongAnswer;
+      });
+      Future.delayed(duration, () {
+        _pageController.page;
+        setState(() {
+          wrongAnswer = !wrongAnswer;
+        });
       });
     }
   }

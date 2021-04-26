@@ -220,7 +220,7 @@ class _BattleQuizScreenState extends State<BattleQuizScreen> {
           context,
           MaterialPageRoute(
               builder: (context) => ResultQuizPlay(
-                    correct: correct1,
+                    acquiredPoints: correct1,
                     competitorCorrect: correct2,
                   )));
     });
