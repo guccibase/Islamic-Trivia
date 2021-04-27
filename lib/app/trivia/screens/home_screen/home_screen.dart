@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inner_drawer/inner_drawer.dart';
-import 'package:islamic_trivia/app/quiz/screens/battle_quiz/init_battle_screen.dart';
-import 'package:islamic_trivia/app/quiz/screens/category_quiz_screen/category_quiz_screen.dart';
-import 'package:islamic_trivia/app/quiz/screens/daily_quiz/daily_quiz_screen.dart';
-import 'package:islamic_trivia/app/quiz/screens/emty_screen/empty_screen.dart';
-import 'package:islamic_trivia/app/quiz/screens/leaderboard/leaderboard_screen.dart';
+import 'package:islamic_trivia/app/trivia/screens/battle_trivia/init_battle_screen.dart';
+import 'package:islamic_trivia/app/trivia/screens/category_quiz_screen/levels_screen.dart';
+import 'package:islamic_trivia/app/trivia/screens/daily_quiz/daily_quiz_screen.dart';
+import 'package:islamic_trivia/app/trivia/screens/emty_screen/empty_screen.dart';
+import 'package:islamic_trivia/app/trivia/screens/leaderboard/leaderboard_screen.dart';
 import 'package:islamic_trivia/data_source/assets_link/src/icon_links.dart';
 import 'package:islamic_trivia/data_source/assets_link/src/image_links.dart';
 import 'package:islamic_trivia/generated/l10n.dart';
 import 'package:islamic_trivia/widget/main_button.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
-class QuizHomeScreen extends StatefulWidget {
+class TriviaHomeScreen extends StatefulWidget {
   @override
-  _QuizHomeScreenState createState() => _QuizHomeScreenState();
+  _TriviaHomeScreenState createState() => _TriviaHomeScreenState();
 }
 
-class _QuizHomeScreenState extends State<QuizHomeScreen>
+class _TriviaHomeScreenState extends State<TriviaHomeScreen>
     with TickerProviderStateMixin {
   AnimationController _animationController;
 
@@ -81,7 +81,7 @@ class _QuizHomeScreenState extends State<QuizHomeScreen>
         buttonMain(
             context: context,
             text: S.current.play_quiz,
-            navigatorTo: CategoryQuizScreen()),
+            navigatorTo: LevelsScreen()),
         SizedBox(
           height: 10,
         ),

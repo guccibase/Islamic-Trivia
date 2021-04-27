@@ -1,24 +1,24 @@
 import 'package:dio/dio.dart';
-import 'package:islamic_trivia/app/quiz/model/response_quiz_question.dart';
+import 'package:islamic_trivia/app/trivia/model/response_trivia_question.dart';
 
 class QuizApiService {
-  Future<ResponseQuizQuestion> getListSportQuestion() async {
+  Future<ResponseTriviaQuestion> getListSportQuestion() async {
     try {
       // Response response = await _dio.get("https://jsonblob.com/api/jsonBlob/4f488d11-307a-11eb-83d3-1140910d6286");
       // var data = jsonDecode(response.toString());
 
-      return ResponseQuizQuestion.fromJson(dataSport);
+      return ResponseTriviaQuestion.fromJson(dataSport);
     } on DioError catch (e) {
       if (e.type == DioErrorType.CONNECT_TIMEOUT) {
-        return ResponseQuizQuestion(code: "error", msg: "Timeout");
+        return ResponseTriviaQuestion(code: "error", msg: "Timeout");
       }
       if (e.type == DioErrorType.RECEIVE_TIMEOUT) {
-        return ResponseQuizQuestion(code: "error", msg: "Timeout");
+        return ResponseTriviaQuestion(code: "error", msg: "Timeout");
       }
       if (e.response != null) {
-        return ResponseQuizQuestion(code: "error", msg: "Erorr");
+        return ResponseTriviaQuestion(code: "error", msg: "Erorr");
       } else {
-        return ResponseQuizQuestion(code: "error", msg: e.message);
+        return ResponseTriviaQuestion(code: "error", msg: e.message);
       }
     }
   }

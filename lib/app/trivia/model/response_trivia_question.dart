@@ -1,17 +1,17 @@
-class ResponseQuizQuestion {
+class ResponseTriviaQuestion {
   String code;
   String msg;
-  List<QuizQuestion> list;
+  List<TriviaQuestion> list;
 
-  ResponseQuizQuestion({this.code, this.msg, this.list});
+  ResponseTriviaQuestion({this.code, this.msg, this.list});
 
-  ResponseQuizQuestion.fromJson(Map<String, dynamic> json) {
+  ResponseTriviaQuestion.fromJson(Map<String, dynamic> json) {
     code = json['code'];
     msg = json['msg'];
     if (json['list'] != null) {
-      list = new List<QuizQuestion>();
+      list = new List<TriviaQuestion>();
       json['list'].forEach((v) {
-        list.add(new QuizQuestion.fromJson(v));
+        list.add(new TriviaQuestion.fromJson(v));
       });
     }
   }
@@ -27,16 +27,17 @@ class ResponseQuizQuestion {
   }
 }
 
-class QuizQuestion {
+class TriviaQuestion {
   int id;
   String title;
   String image;
   List<String> answers;
   RightAnswer rightAnswer;
 
-  QuizQuestion({this.id, this.title, this.image, this.answers, this.rightAnswer});
+  TriviaQuestion(
+      {this.id, this.title, this.image, this.answers, this.rightAnswer});
 
-  QuizQuestion.fromJson(Map<String, dynamic> json) {
+  TriviaQuestion.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     title = json['title'];
     image = json['image'];

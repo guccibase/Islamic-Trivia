@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:islamic_trivia/app/quiz/screens/category_quiz_screen/item_category.dart';
 import 'package:islamic_trivia/data_source/assets_link/src/image_links.dart';
 
-class CategoryQuizScreen extends StatelessWidget {
+import 'item_category.dart';
+
+class LevelsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

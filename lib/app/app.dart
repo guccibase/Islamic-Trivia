@@ -1,2 +1,1 @@
-
-export 'quiz/screens/screens.dart';
+export 'trivia/screens/screens.dart';

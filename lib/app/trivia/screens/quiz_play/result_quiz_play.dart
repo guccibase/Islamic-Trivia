@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islamic_trivia/app/app.dart';
 import 'package:islamic_trivia/data_source/assets_link/assets_links.dart';
 import 'package:islamic_trivia/generated/l10n.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -6,13 +7,15 @@ import 'package:percent_indicator/percent_indicator.dart';
 class ResultQuizPlay extends StatefulWidget {
   final int numberOfQuestions;
   final int totalPoints;
-  final int competitorCorrect;
+  final int requiredPoints;
   final int acquiredPoints;
+  final int competitorPoints;
   ResultQuizPlay(
       {Key key,
       this.numberOfQuestions,
       this.totalPoints,
-      this.competitorCorrect,
+      this.requiredPoints,
+      this.competitorPoints,
       this.acquiredPoints})
       : super(key: key);
 
@@ -50,7 +53,7 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
           height: AppBar().preferredSize.height,
         ),
         Text(
-          S.current.quiz_result,
+          S.current.trivia_result,
           style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
         ),
         SizedBox(
@@ -69,10 +72,12 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
             children: [
               Container(
                 height: MediaQuery.of(context).size.height,
-                child: Image.asset(
-                  ImageLinks().congrats,
-                  fit: BoxFit.cover,
-                ),
+                child: 100 > widget.acquiredPoints
+                    ? null
+                    : Image.asset(
+                        ImageLinks().congrats,
+                        fit: BoxFit.cover,
+                      ),
               ),
               Positioned(
                   top: 50,
@@ -87,6 +92,7 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
                 left: 20,
                 right: 20,
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     FlatButton(
                         onPressed: () {
@@ -97,23 +103,29 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
                         shape: CircleBorder(),
                         child: Icon(
                           Icons.clear,
-                          size: 34,
                         )),
-                    Spacer(),
                     FlatButton(
-                        onPressed: () {
-                          scaffoldKey.currentState
-                              .showSnackBar(SnackBar(content: Text("Share")));
-                        },
+                        onPressed: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => TriviaHomeScreen(),
+                              ),
+                            ),
                         padding: EdgeInsets.all(10),
                         color: Color(0xff8F8F8F).withOpacity(0.5),
                         shape: CircleBorder(),
-                        child: Image.asset(
-                          IconsLinks().share,
-                          height: 34,
-                          width: 34,
-                          color: Theme.of(context).iconTheme.color,
-                        )),
+                        child: Icon(Icons.home_outlined)),
+                    FlatButton(
+                        onPressed: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => LevelsScreen(),
+                              ),
+                            ),
+                        padding: EdgeInsets.all(10),
+                        color: Color(0xff8F8F8F).withOpacity(0.5),
+                        shape: CircleBorder(),
+                        child: Icon(Icons.navigate_next)),
                   ],
                 ),
               )
@@ -167,12 +179,17 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
             backgroundColor: Color(0xffD6D6D6),
             progressColor: Color(0xff3277FC),
           ),
-          Text(
-            S.current.congratulations,
-            style: Theme.of(context)
-                .textTheme
-                .headline6
-                .copyWith(fontWeight: FontWeight.w600),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              100 > widget.acquiredPoints
+                  ? "Try again!"
+                  : S.current.congratulations,
+              style: Theme.of(context)
+                  .textTheme
+                  .headline6
+                  .copyWith(fontWeight: FontWeight.w600),
+            ),
           ),
         ],
       ),

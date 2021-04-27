@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:islamic_trivia/app/quiz/screens/levels_screen/levels_screen.dart';
+import 'package:islamic_trivia/app/trivia/screens/levels_screen/start_screen.dart';
 
 class ItemCategory extends StatefulWidget {
   final int index;
@@ -68,7 +68,7 @@ class _ItemCategoryState extends State<ItemCategory>
                   : Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => LevelsScreen(
+                        builder: (context) => StartScreen(
                           title: widget.name,
                         ),
                       ),

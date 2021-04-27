@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:islamic_trivia/app/quiz/model/response_quiz_question.dart';
-import 'package:islamic_trivia/app/quiz/screens/quiz_play/quiz_page.dart';
-import 'package:islamic_trivia/app/quiz/screens/widget/countdown_progress.dart';
+import 'package:islamic_trivia/app/trivia/model/response_trivia_question.dart';
+import 'package:islamic_trivia/app/trivia/screens/quiz_play/quiz_page.dart';
+import 'package:islamic_trivia/app/trivia/screens/widget/countdown_progress.dart';
 import 'package:islamic_trivia/data_source/api_service/src/quiz_api.dart';
 import 'package:islamic_trivia/generated/l10n.dart';
 import 'package:provider/provider.dart';
@@ -40,7 +40,7 @@ class _QuizPlayScreenState extends State<QuizPlayScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<ResponseQuizQuestion>(
+    return FutureBuilder<ResponseTriviaQuestion>(
         future: QuizApiService().getListSportQuestion(),
         builder: (context, snapshot) {
           return snapshot.hasData
@@ -76,7 +76,7 @@ class _QuizPlayScreenState extends State<QuizPlayScreen> {
 
   _bodyMain(
     BuildContext context,
-    List<QuizQuestion> list,
+    List<TriviaQuestion> list,
   ) {
     return Column(
       children: [

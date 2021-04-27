@@ -1,11 +1,11 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:islamic_trivia/app/quiz/model/response_quiz_question.dart';
-import 'package:islamic_trivia/app/quiz/screens/quiz_play/page_view_holder.dart';
-import 'package:islamic_trivia/app/quiz/screens/quiz_play/quiz_page.dart';
-import 'package:islamic_trivia/app/quiz/screens/quiz_play/result_quiz_play.dart';
-import 'package:islamic_trivia/app/quiz/screens/widget/countdown_progress.dart';
+import 'package:islamic_trivia/app/trivia/model/response_trivia_question.dart';
+import 'package:islamic_trivia/app/trivia/screens/quiz_play/page_view_holder.dart';
+import 'package:islamic_trivia/app/trivia/screens/quiz_play/quiz_page.dart';
+import 'package:islamic_trivia/app/trivia/screens/quiz_play/result_quiz_play.dart';
+import 'package:islamic_trivia/app/trivia/screens/widget/countdown_progress.dart';
 import 'package:islamic_trivia/data_source/api_service/src/quiz_api.dart';
 import 'package:islamic_trivia/data_source/assets_link/src/image_links.dart';
 import 'package:islamic_trivia/generated/l10n.dart';
@@ -37,7 +37,7 @@ class _BattleQuizScreenState extends State<BattleQuizScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<ResponseQuizQuestion>(
+    return FutureBuilder<ResponseTriviaQuestion>(
         future: QuizApiService().getListSportQuestion(),
         builder: (context, snapshot) {
           return snapshot.hasData && snapshot.data.list != null
@@ -67,7 +67,7 @@ class _BattleQuizScreenState extends State<BattleQuizScreen> {
         });
   }
 
-  _bodyMain(BuildContext context, List<QuizQuestion> list) {
+  _bodyMain(BuildContext context, List<TriviaQuestion> list) {
     return Column(
       children: [
         _player(context),
@@ -147,7 +147,7 @@ class _BattleQuizScreenState extends State<BattleQuizScreen> {
     );
   }
 
-  _pageViewQuestion(BuildContext context, List<QuizQuestion> list) {
+  _pageViewQuestion(BuildContext context, List<TriviaQuestion> list) {
     return Expanded(
       child: ChangeNotifierProvider<PageViewHolder>.value(
         value: holder,
@@ -221,7 +221,7 @@ class _BattleQuizScreenState extends State<BattleQuizScreen> {
           MaterialPageRoute(
               builder: (context) => ResultQuizPlay(
                     acquiredPoints: correct1,
-                    competitorCorrect: correct2,
+                    competitorPoints: correct2,
                   )));
     });
   }

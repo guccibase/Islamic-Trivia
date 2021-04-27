@@ -687,11 +687,11 @@ class S {
     );
   }
 
-  /// `Quiz result`
-  String get quiz_result {
+  /// `Trivia result`
+  String get trivia_result {
     return Intl.message(
-      'Quiz result',
-      name: 'quiz_result',
+      'Result',
+      name: 'trivia_result',
       desc: '',
       args: [],
     );

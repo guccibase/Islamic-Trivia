@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:islamic_trivia/app/quiz/model/response_quiz_question.dart';
+import 'package:islamic_trivia/app/trivia/model/response_trivia_question.dart';
 import 'package:islamic_trivia/generated/l10n.dart';
 import 'package:provider/provider.dart';
 
@@ -11,7 +11,7 @@ import 'page_view_holder.dart';
 
 class QuizPage extends StatefulWidget {
   final int index;
-  final QuizQuestion listQuiz;
+  final TriviaQuestion listQuiz;
   final Function(bool) onSelected;
   final Function onSkip;
   const QuizPage(

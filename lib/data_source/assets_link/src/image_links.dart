@@ -13,10 +13,10 @@ class ImageLinks {
   final String congrats = "assets/images/congrats.png";
   final String goldCup = "assets/images/gold_cup.png";
   final String dailyQuiz = "assets/images/daily_quiz.png";
-  final String battleQuiz = "assets/images/battle_quiz.png";
+  final String battleQuiz = "assets/images/battle_trivia.png";
   final String playQuiz = "assets/images/play_quiz.png";
   final String quizMain = "assets/images/quiz_main.png";
-  final String quiz = "assets/images/quiz.png";
+  final String quiz = "assets/images/trivia.png";
   final String thank = "assets/images/thank.gif";
   final String thanks = "assets/images/thanks.png";
   final String basmalah = "assets/images/basmala.png";

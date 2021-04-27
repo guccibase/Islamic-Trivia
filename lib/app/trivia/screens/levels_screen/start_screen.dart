@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:islamic_trivia/app/quiz/screens/quiz_play/quiz_play_screen.dart';
+import 'package:islamic_trivia/app/trivia/screens/quiz_play/quiz_play_screen.dart';
 import 'package:islamic_trivia/data_source/assets_link/assets_links.dart';
 import 'package:islamic_trivia/generated/l10n.dart';
 import 'package:islamic_trivia/widget/main_button.dart';
 
-class LevelsScreen extends StatelessWidget {
+class StartScreen extends StatelessWidget {
   final String title;
 
-  const LevelsScreen({Key key, this.title}) : super(key: key);
+  const StartScreen({Key key, this.title}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -2,9 +2,9 @@ import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:islamic_trivia/app/quiz/screens/home_screen/home_screen.dart';
 import 'package:provider/provider.dart';
 
+import 'app/trivia/screens/home_screen/home_screen.dart';
 import 'generated/l10n.dart';
 import 'themes/app_theme_provider.dart';
 
@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return Consumer<AppThemProvider>(builder: (context, appTheme, child) {
       return MaterialApp(
-          title: 'Multi Flut Kit',
+          title: 'Islamic Trivia',
           debugShowCheckedModeBanner: false,
           theme: appTheme.themeData,
           localizationsDelegates: [
@@ -50,7 +50,7 @@ class _MyAppState extends State<MyApp> {
           supportedLocales: S.delegate.supportedLocales,
           builder: BotToastInit(),
           navigatorObservers: [BotToastNavigatorObserver()],
-          home: QuizHomeScreen());
+          home: TriviaHomeScreen());
     });
   }
 }

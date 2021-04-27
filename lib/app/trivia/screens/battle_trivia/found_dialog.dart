@@ -5,7 +5,7 @@ import 'package:islamic_trivia/data_source/assets_link/src/image_links.dart';
 import 'package:islamic_trivia/generated/l10n.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
-import 'battle_quiz_screen.dart';
+import 'battle_trivia_screen.dart';
 
 class FoundDialog extends StatefulWidget {
   final Function onDeny;
