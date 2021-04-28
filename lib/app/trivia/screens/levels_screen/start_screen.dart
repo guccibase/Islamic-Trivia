@@ -85,6 +85,7 @@ class StartScreen extends StatelessWidget {
               navigatorTo: QuizPlayScreen(
                 totalQuestions: 5,
                 totalPoints: 150,
+                requiredPoints: 100,
               ),
             ),
           )

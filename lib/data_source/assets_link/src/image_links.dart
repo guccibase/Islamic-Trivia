@@ -15,7 +15,7 @@ class ImageLinks {
   final String dailyQuiz = "assets/images/daily_quiz.png";
   final String battleQuiz = "assets/images/battle_trivia.png";
   final String playQuiz = "assets/images/play_quiz.png";
-  final String quizMain = "assets/images/quiz_main.png";
+  final String quizMain = "assets/images/muslims.png";
   final String quiz = "assets/images/trivia.png";
   final String thank = "assets/images/thank.gif";
   final String thanks = "assets/images/thanks.png";

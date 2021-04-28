@@ -13,8 +13,10 @@ import 'result_quiz_play.dart';
 class QuizPlayScreen extends StatefulWidget {
   final int totalQuestions;
   final int totalPoints;
+  final int requiredPoints;
 
-  const QuizPlayScreen({Key key, this.totalQuestions, this.totalPoints})
+  const QuizPlayScreen(
+      {Key key, this.totalQuestions, this.totalPoints, this.requiredPoints})
       : super(key: key);
   @override
   _QuizPlayScreenState createState() => _QuizPlayScreenState();
@@ -191,6 +193,7 @@ class _QuizPlayScreenState extends State<QuizPlayScreen> {
                   builder: (context) => ResultQuizPlay(
                       acquiredPoints: points,
                       numberOfQuestions: length,
+                      requiredPoints: widget.requiredPoints,
                       totalPoints: widget.totalPoints)));
         });
       }

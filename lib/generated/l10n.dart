@@ -697,11 +697,21 @@ class S {
     );
   }
 
-  /// `Your Score`
-  String get your_score {
+  /// `Your Points`
+  String get your_points {
     return Intl.message(
-      'Your Score',
-      name: 'your_score',
+      'Your Points',
+      name: 'your_points',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `required points`
+  String get required_points {
+    return Intl.message(
+      'Minimum required points',
+      name: 'required_ponts',
       desc: '',
       args: [],
     );

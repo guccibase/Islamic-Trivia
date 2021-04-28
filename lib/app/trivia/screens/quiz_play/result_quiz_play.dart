@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:islamic_trivia/app/app.dart';
 import 'package:islamic_trivia/data_source/assets_link/assets_links.dart';
@@ -104,28 +106,42 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
                         child: Icon(
                           Icons.clear,
                         )),
-                    FlatButton(
-                        onPressed: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => TriviaHomeScreen(),
-                              ),
-                            ),
-                        padding: EdgeInsets.all(10),
-                        color: Color(0xff8F8F8F).withOpacity(0.5),
-                        shape: CircleBorder(),
-                        child: Icon(Icons.home_outlined)),
-                    FlatButton(
-                        onPressed: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => LevelsScreen(),
-                              ),
-                            ),
-                        padding: EdgeInsets.all(10),
-                        color: Color(0xff8F8F8F).withOpacity(0.5),
-                        shape: CircleBorder(),
-                        child: Icon(Icons.navigate_next)),
+                    widget.acquiredPoints < widget.requiredPoints
+                        ? SizedBox.shrink()
+                        : FlatButton(
+                            onPressed: () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => TriviaHomeScreen(),
+                                  ),
+                                ),
+                            padding: EdgeInsets.all(10),
+                            color: Color(0xff8F8F8F).withOpacity(0.5),
+                            shape: CircleBorder(),
+                            child: Icon(Icons.home_outlined)),
+                    widget.acquiredPoints < widget.requiredPoints
+                        ? FlatButton(
+                            onPressed: () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => TriviaHomeScreen(),
+                                  ),
+                                ),
+                            padding: EdgeInsets.all(10),
+                            color: Color(0xff8F8F8F).withOpacity(0.5),
+                            shape: CircleBorder(),
+                            child: Icon(Icons.home_outlined))
+                        : FlatButton(
+                            onPressed: () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => LevelsScreen(),
+                                  ),
+                                ),
+                            padding: EdgeInsets.all(10),
+                            color: Color(0xff8F8F8F).withOpacity(0.5),
+                            shape: CircleBorder(),
+                            child: Icon(Icons.navigate_next)),
                   ],
                 ),
               )
@@ -158,7 +174,21 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
           Padding(
             padding: const EdgeInsets.only(top: 8),
             child: Text(
-              S.current.your_score.toUpperCase(),
+              S.current.required_points.toUpperCase(),
+              style: Theme.of(context)
+                  .textTheme
+                  .headline6
+                  .copyWith(fontWeight: FontWeight.w600),
+            ),
+          ),
+          Text(
+            "${widget.requiredPoints}",
+            style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 8),
+            child: Text(
+              S.current.your_points.toUpperCase(),
               style: Theme.of(context)
                   .textTheme
                   .headline6
@@ -180,21 +210,98 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
             progressColor: Color(0xff3277FC),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              100 > widget.acquiredPoints
-                  ? "Try again!"
-                  : S.current.congratulations,
-              style: Theme.of(context)
-                  .textTheme
-                  .headline6
-                  .copyWith(fontWeight: FontWeight.w600),
-            ),
-          ),
+              padding: const EdgeInsets.all(8.0),
+              child: widget.acquiredPoints < widget.requiredPoints
+                  ? Column(
+                      children: [
+                        Text(
+                          '${failMsgs[randomNum]}',
+                          style: Theme.of(context).textTheme.headline6.copyWith(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 10.0,
+                              color: Colors.red),
+                        ),
+                        Text(
+                          "Try again!",
+                          style: Theme.of(context).textTheme.headline6.copyWith(
+                              fontWeight: FontWeight.w600, fontSize: 20.0),
+                        ),
+                        Text(
+                          '${failEncouragementMsgs[randomNum]}',
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline6
+                              .copyWith(fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    )
+                  : Column(
+                      children: [
+                        Text(
+                          '${passMsgs[randomNum]}',
+                          style: Theme.of(context).textTheme.headline6.copyWith(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16.0,
+                              color: Colors.green),
+                        ),
+                        Text(
+                          "You've unlocked the next level",
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline6
+                              .copyWith(fontWeight: FontWeight.w600),
+                        ),
+                        Text(
+                          '${encouragementMsgs[randomNum]}',
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline6
+                              .copyWith(fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    )),
         ],
       ),
     );
   }
+
+  List failMsgs = [
+    "You did not reach the target points unlock the next level",
+    "You failed to reach the required points to unlock the next level",
+    "Not enough points to unlock the next level",
+    "You didn't collect enough points to unlock the next level",
+    "Uh uhh! Your points are not enought to unlock the next level",
+    "Level failed"
+  ];
+
+  List failEncouragementMsgs = [
+    "InshaAllah you will do great next time",
+    "Don't give up, you can do it",
+    "Go hard next time, you've got this",
+    "Bring your 'A' game next time. You can do it",
+    "Winners are not people who never fail, but people who never quit",
+    "You will get it next time inshaAllah"
+  ];
+
+  int randomNum = Random().nextInt(5);
+
+  List passMsgs = [
+    "Well done!",
+    "Good job!",
+    "MashaAllah!",
+    "SubhanAllah!",
+    "Wow!!!",
+    "Nice!"
+  ];
+
+  List encouragementMsgs = [
+    "Don't stop",
+    "Keep going",
+    "You should be proud",
+    "Go hard, and play smart",
+    "Keep doing what you’re doing",
+    "Keep up the good work"
+  ];
 
   Widget _battleQuizResult(BuildContext context) {
     return Container(
