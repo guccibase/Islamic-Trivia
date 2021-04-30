@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inner_drawer/inner_drawer.dart';
+import 'package:islamic_trivia/app/trivia/provider/battle_trivia_screen.dart';
 import 'package:islamic_trivia/app/trivia/screens/battle_trivia/init_battle_screen.dart';
 import 'package:islamic_trivia/app/trivia/screens/category_quiz_screen/levels_screen.dart';
 import 'package:islamic_trivia/app/trivia/screens/daily_quiz/daily_quiz_screen.dart';
@@ -7,9 +8,11 @@ import 'package:islamic_trivia/app/trivia/screens/emty_screen/empty_screen.dart'
 import 'package:islamic_trivia/app/trivia/screens/leaderboard/leaderboard_screen.dart';
 import 'package:islamic_trivia/data_source/assets_link/src/icon_links.dart';
 import 'package:islamic_trivia/data_source/assets_link/src/image_links.dart';
+import 'package:islamic_trivia/data_source/memory_service/memory_service.dart';
 import 'package:islamic_trivia/generated/l10n.dart';
 import 'package:islamic_trivia/widget/main_button.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
+import 'package:provider/provider.dart';
 
 class TriviaHomeScreen extends StatefulWidget {
   @override
@@ -31,6 +34,15 @@ class _TriviaHomeScreenState extends State<TriviaHomeScreen>
       vsync: this,
       duration: Duration(milliseconds: 800),
     );
+
+    getUserPoints();
+  }
+
+  getUserPoints() async {
+    var points = Provider.of<UserData>(context, listen: false);
+    points.setUserPoints = await UserDataSharedPref.sharedPrf.getUserPoints();
+    if (points.getUserPoints == null) points.setUserPoints = 0;
+    print(points.getUserPoints);
   }
 
   final GlobalKey<InnerDrawerState> _innerDrawerKey =

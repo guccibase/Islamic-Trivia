@@ -1,24 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islamic_trivia/app/trivia/screens/levels_screen/start_screen.dart';
+import 'package:islamic_trivia/data_source/memory_service/memory_service.dart';
 
-class ItemCategory extends StatefulWidget {
+class Level extends StatefulWidget {
   final int index;
   final String imageLink;
   final String name;
-  final bool locked;
-  const ItemCategory(
-      {Key key, this.locked, this.imageLink, this.name, this.index})
+  final String nextLevel;
+  const Level({Key key, this.imageLink, this.nextLevel, this.name, this.index})
       : super(key: key);
   @override
-  _ItemCategoryState createState() => _ItemCategoryState();
+  _LevelState createState() => _LevelState();
 }
 
-class _ItemCategoryState extends State<ItemCategory>
-    with TickerProviderStateMixin {
+class _LevelState extends State<Level> with TickerProviderStateMixin {
   AnimationController _animationController;
   Animation<Offset> _translateAnimation;
   Animation<double> _fadeAnimation;
+  bool locked = true;
+  String level;
   @override
   void initState() {
     _animationController = AnimationController(
@@ -29,7 +30,15 @@ class _ItemCategoryState extends State<ItemCategory>
     _fadeAnimation =
         Tween<double>(begin: 0, end: 1).animate(_animationController);
     _animationController.forward();
+    checkLockedStatus();
     super.initState();
+  }
+
+  checkLockedStatus() async {
+    level =
+        await UserDataSharedPref.sharedPrf.getUserUnlockedLevels(widget.name);
+    if (level != null || widget.name == "Level 1") locked = false;
+    setState(() {});
   }
 
   @override
@@ -63,35 +72,45 @@ class _ItemCategoryState extends State<ItemCategory>
         child: Column(
           children: [
             GestureDetector(
-              onTap: () => widget.locked
+              onTap: () => locked
                   ? null
                   : Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => StartScreen(
                           title: widget.name,
+                          nextLevel: widget.nextLevel,
+                          levelIndex: widget.index,
                         ),
                       ),
                     ),
               child: AspectRatio(
                 aspectRatio: 1,
                 child: Container(
+                  padding: EdgeInsets.all(5.0),
                   child: Align(
                       alignment: Alignment.bottomRight,
                       child: Icon(
-                        widget.locked ? Icons.lock : Icons.lock_open,
+                        locked ? Icons.lock : Icons.lock_open,
                         color: Colors.white,
                       )),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
+                      color: Theme.of(context).backgroundColor,
+                      gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Color(0xff3277FC),
+                            Theme.of(context).backgroundColor
+                          ]),
                       image: DecorationImage(
-                          fit: BoxFit.cover,
-                          colorFilter: widget.locked
+                          fit: BoxFit.fill,
+                          colorFilter: locked
                               ? ColorFilter.mode(Colors.black, BlendMode.color)
                               : null,
                           image: Image.asset(
                             widget.imageLink,
-                            fit: BoxFit.cover,
                           ).image),
                       boxShadow: [
                         BoxShadow(

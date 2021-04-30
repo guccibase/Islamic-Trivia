@@ -14,9 +14,16 @@ class QuizPlayScreen extends StatefulWidget {
   final int totalQuestions;
   final int totalPoints;
   final int requiredPoints;
+  final String nextLevel;
+  final int levelIndex;
 
   const QuizPlayScreen(
-      {Key key, this.totalQuestions, this.totalPoints, this.requiredPoints})
+      {Key key,
+      this.totalQuestions,
+      this.nextLevel,
+      this.levelIndex,
+      this.totalPoints,
+      this.requiredPoints})
       : super(key: key);
   @override
   _QuizPlayScreenState createState() => _QuizPlayScreenState();
@@ -188,13 +195,18 @@ class _QuizPlayScreenState extends State<QuizPlayScreen> {
         }
         Future.delayed(Duration(milliseconds: 500), () {
           Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => ResultQuizPlay(
-                      acquiredPoints: points,
-                      numberOfQuestions: length,
-                      requiredPoints: widget.requiredPoints,
-                      totalPoints: widget.totalPoints)));
+            context,
+            MaterialPageRoute(
+              builder: (context) => ResultQuizPlay(
+                acquiredPoints: points,
+                numberOfQuestions: length,
+                nextLevel: widget.nextLevel,
+                levelIndex: widget.levelIndex,
+                requiredPoints: widget.requiredPoints,
+                totalPoints: widget.totalPoints,
+              ),
+            ),
+          );
         });
       }
     } else {

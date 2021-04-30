@@ -2,6 +2,7 @@ import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:islamic_trivia/app/trivia/provider/battle_trivia_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'app/trivia/screens/home_screen/home_screen.dart';
@@ -37,20 +38,23 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Consumer<AppThemProvider>(builder: (context, appTheme, child) {
-      return MaterialApp(
-          title: 'Islamic Trivia',
-          debugShowCheckedModeBanner: false,
-          theme: appTheme.themeData,
-          localizationsDelegates: [
-            S.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: S.delegate.supportedLocales,
-          builder: BotToastInit(),
-          navigatorObservers: [BotToastNavigatorObserver()],
-          home: TriviaHomeScreen());
+      return ChangeNotifierProvider(
+        create: (context) => UserData(),
+        child: MaterialApp(
+            title: 'Islamic Trivia',
+            debugShowCheckedModeBanner: false,
+            theme: appTheme.themeData,
+            localizationsDelegates: [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            builder: BotToastInit(),
+            navigatorObservers: [BotToastNavigatorObserver()],
+            home: TriviaHomeScreen()),
+      );
     });
   }
 }

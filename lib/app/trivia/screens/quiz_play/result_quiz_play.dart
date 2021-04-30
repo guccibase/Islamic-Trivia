@@ -2,9 +2,12 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:islamic_trivia/app/app.dart';
+import 'package:islamic_trivia/app/trivia/provider/battle_trivia_screen.dart';
 import 'package:islamic_trivia/data_source/assets_link/assets_links.dart';
+import 'package:islamic_trivia/data_source/memory_service/memory_service.dart';
 import 'package:islamic_trivia/generated/l10n.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:provider/provider.dart';
 
 class ResultQuizPlay extends StatefulWidget {
   final int numberOfQuestions;
@@ -12,13 +15,18 @@ class ResultQuizPlay extends StatefulWidget {
   final int requiredPoints;
   final int acquiredPoints;
   final int competitorPoints;
+  final int levelIndex;
+  final String nextLevel;
+
   ResultQuizPlay(
       {Key key,
       this.numberOfQuestions,
       this.totalPoints,
       this.requiredPoints,
       this.competitorPoints,
-      this.acquiredPoints})
+      this.acquiredPoints,
+      this.nextLevel,
+      this.levelIndex})
       : super(key: key);
 
   @override
@@ -30,6 +38,9 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   AnimationController _animationController;
   Animation<double> _animation;
+  bool repeatedLevel = false;
+  bool morePointsThisTime = false;
+  int totalUserPoints;
   @override
   void initState() {
     _animationController =
@@ -37,7 +48,53 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
     _animation = Tween<double>(begin: 2, end: 1).animate(CurvedAnimation(
         curve: Curves.elasticOut, parent: _animationController));
     _animationController.forward();
+    saveLevelPoints();
     super.initState();
+  }
+
+  saveLevelPoints() async {
+    List<String> points = await UserDataSharedPref.sharedPrf.getLevelPoints();
+
+    if (points != null && points.length > widget.levelIndex) {
+      // level was played before
+      repeatedLevel = true;
+      unlockNextLevel();
+      int prevPoints = int.parse(points[widget.levelIndex]);
+      if (prevPoints < widget.acquiredPoints) {
+        // acquired more points that last time user played same level
+        morePointsThisTime = true;
+
+        int pointDiff = widget.acquiredPoints - prevPoints;
+        updateUserTotalPoints(pointDiff);
+        points[widget.levelIndex] = widget.acquiredPoints.toString();
+        await UserDataSharedPref.sharedPrf.setUserCompletedLevelPoints(points);
+      }
+    } else if (widget.acquiredPoints >= widget.requiredPoints) {
+      if (points == null) points = [];
+      points.add(widget.acquiredPoints.toString());
+      await UserDataSharedPref.sharedPrf.setUserCompletedLevelPoints(points);
+      await updateUserTotalPoints(widget.acquiredPoints);
+      await unlockNextLevel();
+    }
+    setState(() {});
+  }
+
+  unlockNextLevel() async {
+    await UserDataSharedPref.sharedPrf.setUnlockedLevels(widget.nextLevel);
+  }
+
+  updateUserTotalPoints(currentLevelPoints) async {
+    totalUserPoints =
+        Provider.of<UserData>(context, listen: false).getUserPoints;
+
+    if (totalUserPoints == null) {
+      totalUserPoints = currentLevelPoints;
+    } else {
+      totalUserPoints += currentLevelPoints;
+    }
+    Provider.of<UserData>(context, listen: false).setUserPoints =
+        totalUserPoints;
+    return await UserDataSharedPref.sharedPrf.setUserPoints(totalUserPoints);
   }
 
   @override
@@ -244,13 +301,29 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
                               fontSize: 16.0,
                               color: Colors.green),
                         ),
-                        Text(
-                          "You've unlocked the next level",
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline6
-                              .copyWith(fontWeight: FontWeight.w600),
-                        ),
+                        repeatedLevel && morePointsThisTime
+                            ? Text(
+                                "You've done better this time",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline6
+                                    .copyWith(fontWeight: FontWeight.w600),
+                              )
+                            : repeatedLevel && !morePointsThisTime
+                                ? Text(
+                                    "",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headline6
+                                        .copyWith(fontWeight: FontWeight.w600),
+                                  )
+                                : Text(
+                                    "You've unlocked the next level",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headline6
+                                        .copyWith(fontWeight: FontWeight.w600),
+                                  ),
                         Text(
                           '${encouragementMsgs[randomNum]}',
                           style: Theme.of(context)

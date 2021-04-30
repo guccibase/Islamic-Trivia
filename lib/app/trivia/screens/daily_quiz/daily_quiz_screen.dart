@@ -132,8 +132,16 @@ class DailyQuizScreen extends StatelessWidget {
                     height: 50,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(9),
+                        color: Theme.of(context).backgroundColor,
+                        gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Color(0xff3277FC),
+                              Theme.of(context).backgroundColor
+                            ]),
                         image: DecorationImage(
-                            fit: BoxFit.cover,
+                            fit: BoxFit.fill,
                             image: Image.asset(imageLink).image),
                         boxShadow: [
                           BoxShadow(

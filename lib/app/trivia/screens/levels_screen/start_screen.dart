@@ -6,8 +6,11 @@ import 'package:islamic_trivia/widget/main_button.dart';
 
 class StartScreen extends StatelessWidget {
   final String title;
+  final int levelIndex;
+  final String nextLevel;
 
-  const StartScreen({Key key, this.title}) : super(key: key);
+  const StartScreen({Key key, this.title, this.levelIndex, this.nextLevel})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,6 +89,8 @@ class StartScreen extends StatelessWidget {
                 totalQuestions: 5,
                 totalPoints: 150,
                 requiredPoints: 100,
+                nextLevel: nextLevel,
+                levelIndex: levelIndex,
               ),
             ),
           )
