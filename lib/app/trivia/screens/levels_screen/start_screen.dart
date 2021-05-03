@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islamic_trivia/app/trivia/screens/quiz_play/quiz_play_screen.dart';
 import 'package:islamic_trivia/data_source/assets_link/assets_links.dart';
+import 'package:islamic_trivia/data_source/trivia_data/questions.dart';
+import 'package:islamic_trivia/data_source/trivia_data/topics.dart';
 import 'package:islamic_trivia/generated/l10n.dart';
 import 'package:islamic_trivia/widget/main_button.dart';
 
@@ -27,6 +29,12 @@ class StartScreen extends StatelessWidget {
   }
 
   _bodyMain(BuildContext context) {
+    String topic = triviaQuestions[title]['topic'];
+    int numQuestions = triviaQuestions[title]['number of questions'];
+    int totalPoints = triviaQuestions[title]['total points'];
+    int minPointsReq = triviaQuestions[title]['minimum points required'];
+    String description = topicDescription[topic];
+    print(topic);
     return Container(
       // width: MediaQuery.of(context).size.width,
       // height: MediaQuery.of(context).size.height,
@@ -38,15 +46,15 @@ class StartScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text('Topic - '),
-              Text('Qur\'an'),
+              Text(topic),
             ],
           ),
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Text(
-                'Anything that is related to the Quran, from its content,'
-                ' to its revelation or its reasons, to the virtues of the surahs,'
-                ' or anything related to the Quran in any way.'),
+              description,
+              textAlign: TextAlign.center,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -55,7 +63,7 @@ class StartScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text('Number of questions - '),
-                Text(' 5 '),
+                Text(numQuestions.toString()),
               ],
             ),
           ),
@@ -66,7 +74,7 @@ class StartScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text('Maximum points attainable - '),
-                Text('150 Points'),
+                Text(totalPoints.toString()),
               ],
             ),
           ),
@@ -77,7 +85,7 @@ class StartScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text('Minimum points required - '),
-                Text('100 Points'),
+                Text(minPointsReq.toString()),
               ],
             ),
           ),
@@ -86,11 +94,12 @@ class StartScreen extends StatelessWidget {
             child: MainButton(
               text: 'Start',
               navigatorTo: QuizPlayScreen(
-                totalQuestions: 5,
-                totalPoints: 150,
-                requiredPoints: 100,
+                totalQuestions: numQuestions,
+                totalPoints: totalPoints,
+                requiredPoints: minPointsReq,
                 nextLevel: nextLevel,
                 levelIndex: levelIndex,
+                level: title,
               ),
             ),
           )

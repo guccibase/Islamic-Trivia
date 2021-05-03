@@ -8,9 +8,9 @@ class ResponseTriviaQuestion {
   ResponseTriviaQuestion.fromJson(Map<String, dynamic> json) {
     code = json['code'];
     msg = json['msg'];
-    if (json['list'] != null) {
+    if (json['questions'] != null) {
       list = new List<TriviaQuestion>();
-      json['list'].forEach((v) {
+      json['questions'].forEach((v) {
         list.add(new TriviaQuestion.fromJson(v));
       });
     }
@@ -21,7 +21,7 @@ class ResponseTriviaQuestion {
     data['code'] = this.code;
     data['msg'] = this.msg;
     if (this.list != null) {
-      data['list'] = this.list.map((v) => v.toJson()).toList();
+      data['questions'] = this.list.map((v) => v.toJson()).toList();
     }
     return data;
   }

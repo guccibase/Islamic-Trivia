@@ -38,7 +38,7 @@ class _BattleQuizScreenState extends State<BattleQuizScreen> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<ResponseTriviaQuestion>(
-        future: QuizApiService().getListSportQuestion(),
+        future: QuizApiService().getListTriviaQuestion('Level 1'),
         builder: (context, snapshot) {
           return snapshot.hasData && snapshot.data.list != null
               ? Scaffold(

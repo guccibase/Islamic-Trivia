@@ -1,13 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:islamic_trivia/app/trivia/model/response_trivia_question.dart';
+import 'package:islamic_trivia/data_source/trivia_data/questions.dart';
 
 class QuizApiService {
-  Future<ResponseTriviaQuestion> getListSportQuestion() async {
+  Future<ResponseTriviaQuestion> getListTriviaQuestion(String level) async {
     try {
       // Response response = await _dio.get("https://jsonblob.com/api/jsonBlob/4f488d11-307a-11eb-83d3-1140910d6286");
       // var data = jsonDecode(response.toString());
-
-      return ResponseTriviaQuestion.fromJson(dataSport);
+      print(triviaQuestions[level]['questions']);
+      return ResponseTriviaQuestion.fromJson(triviaQuestions[level]);
     } on DioError catch (e) {
       if (e.type == DioErrorType.CONNECT_TIMEOUT) {
         return ResponseTriviaQuestion(code: "error", msg: "Timeout");

@@ -16,6 +16,7 @@ class QuizPlayScreen extends StatefulWidget {
   final int requiredPoints;
   final String nextLevel;
   final int levelIndex;
+  final String level;
 
   const QuizPlayScreen(
       {Key key,
@@ -23,7 +24,8 @@ class QuizPlayScreen extends StatefulWidget {
       this.nextLevel,
       this.levelIndex,
       this.totalPoints,
-      this.requiredPoints})
+      this.requiredPoints,
+      this.level})
       : super(key: key);
   @override
   _QuizPlayScreenState createState() => _QuizPlayScreenState();
@@ -49,8 +51,9 @@ class _QuizPlayScreenState extends State<QuizPlayScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print(widget.level);
     return FutureBuilder<ResponseTriviaQuestion>(
-        future: QuizApiService().getListSportQuestion(),
+        future: QuizApiService().getListTriviaQuestion(widget.level),
         builder: (context, snapshot) {
           return snapshot.hasData
               ? Scaffold(

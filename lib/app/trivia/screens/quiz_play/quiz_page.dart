@@ -110,7 +110,7 @@ class _QuizPageState extends State<QuizPage> {
 
   _answer(int index) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 7),
+      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(17),
           border: Border.all(
@@ -168,7 +168,7 @@ class _QuizPageState extends State<QuizPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
               child: Row(
                 children: [
                   Text(
@@ -181,7 +181,7 @@ class _QuizPageState extends State<QuizPage> {
                                 : Theme.of(context).textTheme.headline6.color
                             : Theme.of(context).textTheme.headline6.color,
                         fontWeight: FontWeight.w600,
-                        fontSize: 18),
+                        fontSize: 16),
                   ),
                   Spacer(),
                   Container(

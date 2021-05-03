@@ -257,7 +257,9 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
             animation: true,
             animationDuration: 1000,
             lineWidth: 35.0,
-            percent: widget.acquiredPoints / widget.totalPoints,
+            percent: widget.acquiredPoints > 0
+                ? widget.acquiredPoints / widget.totalPoints
+                : 0.0,
             center: new Text(
               "${widget.acquiredPoints}/${widget.totalPoints}",
               style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
@@ -272,7 +274,8 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
                   ? Column(
                       children: [
                         Text(
-                          '${failMsgs[randomNum]}',
+                          repeatedLevel ? '' : '${failMsgs[randomNum]}',
+                          textAlign: TextAlign.center,
                           style: Theme.of(context).textTheme.headline6.copyWith(
                               fontWeight: FontWeight.w600,
                               fontSize: 10.0,
@@ -285,6 +288,7 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
                         ),
                         Text(
                           '${failEncouragementMsgs[randomNum]}',
+                          textAlign: TextAlign.center,
                           style: Theme.of(context)
                               .textTheme
                               .headline6
@@ -296,6 +300,7 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
                       children: [
                         Text(
                           '${passMsgs[randomNum]}',
+                          textAlign: TextAlign.center,
                           style: Theme.of(context).textTheme.headline6.copyWith(
                               fontWeight: FontWeight.w600,
                               fontSize: 16.0,
@@ -304,6 +309,7 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
                         repeatedLevel && morePointsThisTime
                             ? Text(
                                 "You've done better this time",
+                                textAlign: TextAlign.center,
                                 style: Theme.of(context)
                                     .textTheme
                                     .headline6
@@ -319,6 +325,7 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
                                   )
                                 : Text(
                                     "You've unlocked the next level",
+                                    textAlign: TextAlign.center,
                                     style: Theme.of(context)
                                         .textTheme
                                         .headline6
@@ -326,6 +333,7 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
                                   ),
                         Text(
                           '${encouragementMsgs[randomNum]}',
+                          textAlign: TextAlign.center,
                           style: Theme.of(context)
                               .textTheme
                               .headline6
