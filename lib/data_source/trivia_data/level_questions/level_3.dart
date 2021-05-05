@@ -60,23 +60,11 @@ var level3 = {
       "right_answer": {"answer": 3, "explain": ""}
     },
     {
-      "id": 5,
+      "id": 6,
       "title":
           "According to Prophet Muhammad SAW, what is the greatest fitna since the creation of Adam and until the day of judgment?",
       "image": "",
       "answers": ["Cross dressing", "Idol worship", "The Dajjal", "Money"],
-      "right_answer": {"answer": 2, "explain": ""}
-    },
-    {
-      "id": 6,
-      "title": "When the dajjal comes out, how many kids will he have?",
-      "image": "",
-      "answers": [
-        "Many kids",
-        "22 kids",
-        "None, he is infertile and can not have any kids",
-        "100 sons and 200 daugthers"
-      ],
       "right_answer": {"answer": 2, "explain": ""}
     },
   ]

@@ -160,7 +160,7 @@ class _QuizPageState extends State<QuizPage> {
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Text(
-                "",
+                '',
                 style: Theme.of(context)
                     .textTheme
                     .headline6
@@ -170,20 +170,30 @@ class _QuizPageState extends State<QuizPage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    widget.listQuiz.answers[index],
-                    style: TextStyle(
-                        color: isAnswer
-                            ? isClicks[index] ||
-                                    index == widget.listQuiz.rightAnswer.answer
-                                ? Colors.white
-                                : Theme.of(context).textTheme.headline6.color
-                            : Theme.of(context).textTheme.headline6.color,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16),
+                  Flexible(
+                    fit: FlexFit.loose,
+                    child: FittedBox(
+                      child: Text(
+                        widget.listQuiz.answers[index],
+                        style: TextStyle(
+                            color: isAnswer
+                                ? isClicks[index] ||
+                                        index ==
+                                            widget.listQuiz.rightAnswer.answer
+                                    ? Colors.white
+                                    : Theme.of(context)
+                                        .textTheme
+                                        .headline6
+                                        .color
+                                : Theme.of(context).textTheme.headline6.color,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16),
+                      ),
+                    ),
                   ),
-                  Spacer(),
+                  // Spacer(),
                   Container(
                     alignment: Alignment.center,
                     height: 16,
