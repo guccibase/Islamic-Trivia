@@ -7,7 +7,7 @@ Map<String, String> topicDescription = {
       'This includes ALL the prophets, from Adam to Muhammad and passing through every prophet in between, peace be upon them all. Anything relating to their lives, or their description, or any incident that happened to any of them.',
   'Akhira/Hereafter':
       'This includes the minor and major signs of the day of judgment, death and anything related to the grave, the day of judgment or anything related to it or the events that take place, anything related to heaven and hell and their description, or any other incidents or details pertaining to the day of judgment.',
-  'Mothers of the believers RA':
+  'Mothers of the Believers RA':
       'This is about ALL the wives of the prophet may Allah be pleased with them all. Anything related to them, their lives, their description, anything that they might have said or done, any events or incidents that happened to them or they took part of, and which could be related to the prophet during his life or afterwords.',
   'Hadeeth':
       'This is about the science of hadeeth, and pertains to its terminology, definitions, narrations, narrators, scholars of hadeeth and their works or compilations, or anything related to the hadeeth of the prophet peace be upon him and its sciences.',

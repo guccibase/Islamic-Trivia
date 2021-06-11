@@ -1,61 +1,114 @@
-var level1 = {
-  'total points': 150,
-  'minimum points required': 100,
-  'topic': 'Qur\'an',
-  'number of questions': 5,
+var level14 = {
+  'total points': 300,
+  'minimum points required': 260,
+  'topic': 'Seerah',
+  'number of questions': 10,
   'questions': [
     {
       "id": 0,
-      "title":
-          "What is the name of the door of Paradise through which the fasting people enter?",
+      "title": "On which day was the prophet Muhammad peace be upon him born?",
       "image": "",
-      "answers": ["Al-Rayyan", "Kaabah", "Al-Jihad", "Al-Iman"],
+      "answers": ["Monday", "Tuesday", "Friday", "Thursday"],
       "right_answer": {"answer": 0, "explain": ""}
     },
     {
       "id": 1,
       "title":
-          "Who will be the first person to enter paradise on the day of judgment?",
+          "On which day was the first revelation of the Qur\'an inspired to the Prophet Muhammad peace be upon him?",
       "image": "",
-      "answers": [
-        "Prophet Muhammad SAW",
-        "Prophet Isa AS",
-        "Maryam AS",
-        "Prophet Adam AS"
-      ],
+      "answers": ["Monday", "Tuesday", "Friday", "Thursday"],
       "right_answer": {"answer": 0, "explain": ""}
     },
     {
       "id": 2,
       "title":
-          "Who are the first three people who will be brought to account on the day of judgment?",
+          "How old was the Prophet Muhammad peace be upon him when he passed away?",
       "image": "",
       "answers": [
-        "A driver, a scholar, and a teacher",
-        "A martyr, a scholar, and a merchant",
-        "A thief, a trader, a judge",
-        "A martyr, a scholar, and a generous person"
+        "100",
+        "1000",
+        "73",
+        "63",
       ],
       "right_answer": {"answer": 3, "explain": ""}
     },
     {
       "id": 3,
       "title":
-          "What is the first deed that people will be brought to account for on the day of judgment?",
+          "What miracle did Prophet Muhammad SAW perform regarding the moon?",
       "image": "",
-      "answers": ["Charity", "The obligatory Prayer", "Fasting", "Hajj"],
-      "right_answer": {"answer": 1, "explain": ""}
+      "answers": [
+        "He made the moon disappear",
+        "He made the moon talk",
+        "He made the moon recite the Qur\'an",
+        "He split the moon into two",
+      ],
+      "right_answer": {"answer": 3, "explain": ""}
     },
     {
       "id": 4,
       "title":
-          "Which prophet will have the most number of followers on the day of judgment?",
+          "The Prophet Muhammad peace be upon him said that the hypocrite has 3 signs/traits, which one of these is it?",
       "image": "",
       "answers": [
-        "Prophet Muhammad SAW",
-        "Prophet Isa AS",
-        "Prophet Musa AS",
-        "Prophet Nuh AS"
+        "When he speaks he lies",
+        "When he promises he breaks his promise",
+        "wWen he is entrusted he betrays the trust",
+        "All of the above"
+      ],
+      "right_answer": {"answer": 3, "explain": ""}
+    },
+    {
+      "id": 5,
+      "title": "Who was the first child to be born for the Muslims in Medina?",
+      "image": "",
+      "answers": [
+        "Hassan Ibn Ali RA",
+        "Hussein Ibn Ali RA",
+        "Abdullah Ibn Zubair RA",
+        "Abdullah Ibn Umar RA "
+      ],
+      "right_answer": {"answer": 2, "explain": ""}
+    },
+    {
+      "id": 6,
+      "title":
+          "During the journey of Isra' and Mi'raaj, the Prophet SAW saw 4 rivers originating at Sidrat-il-Muntaha, two of these 4 rivers were apparent. Which are these two rivers?",
+      "image": "",
+      "answers": [
+        "The Nile and the Euphrates",
+        "The Nile and the Indus",
+        "The Tigris and the Mississippi",
+        "The Amazon and the Euphrates"
+      ],
+      "right_answer": {"answer": 0, "explain": ""}
+    },
+    {
+      "id": 7,
+      "title":
+          "What was the color of the Buraaq, the creature/animal that the Prophet Muhammad peace be upon him rode during the journey of Isra2 and Mi3raj?",
+      "image": "",
+      "answers": ["Gold", "White", "Silver", "Blueish brown"],
+      "right_answer": {"answer": 1, "explain": ""}
+    },
+    {
+      "id": 8,
+      "title":
+          "After the hijrah to Medina, how many times did Prophet Muhammad peace be upon him do Hajj?",
+      "image": "",
+      "answers": ["0 times", "1 times", "7 times", "77 times"],
+      "right_answer": {"answer": 1, "explain": ""}
+    },
+    {
+      "id": 9,
+      "title":
+          "One prayer in the Prophet's masjid in Madeenah (Almasjid Alnabawi) is better than how many prayers elsewhere?",
+      "image": "",
+      "answers": [
+        "1000 prayers elsewhere except the Masjid Alharaam/Mekkah",
+        "10000 prayers elsewhere except the Masjid Alharaam/Mekkah",
+        "100 prayers elsewhere except the Masjid Alharaam/Mekkah",
+        "None of the above"
       ],
       "right_answer": {"answer": 0, "explain": ""}
     },

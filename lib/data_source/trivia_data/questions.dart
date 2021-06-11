@@ -7,7 +7,14 @@ import 'level_questions/level_10.dart';
 import 'level_questions/level_11.dart';
 import 'level_questions/level_12.dart';
 import 'level_questions/level_13.dart';
+import 'level_questions/level_14.dart';
+import 'level_questions/level_15.dart';
+import 'level_questions/level_16.dart';
+import 'level_questions/level_17.dart';
+import 'level_questions/level_18.dart';
+import 'level_questions/level_19.dart';
 import 'level_questions/level_2.dart';
+import 'level_questions/level_20.dart';
 import 'level_questions/level_5.dart';
 import 'level_questions/level_7.dart';
 import 'level_questions/level_8.dart';
@@ -27,11 +34,11 @@ Map<String, dynamic> triviaQuestions = {
   "Level 11": level11,
   "Level 12": level12,
   "Level 13": level13,
-  "Level 14": level1,
-  "Level 15": level1,
-  "Level 16": level1,
-  "Level 17": level1,
-  "Level 18": level1,
-  "Level 19": level1,
-  "Level 20": level1,
+  "Level 14": level14,
+  "Level 15": level15,
+  "Level 16": level16,
+  "Level 17": level17,
+  "Level 18": level18,
+  "Level 19": level19,
+  "Level 20": level20,
 };
