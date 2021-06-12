@@ -1,12 +1,13 @@
 var level19 = {
-  'total points': 300,
-  'minimum points required': 260,
-  'topic': 'Seerah',
-  'number of questions': 10,
+  'total points': 450,
+  'minimum points required': 400,
+  'topic': 'Khulafa\' Rashideen',
+  'number of questions': 15,
   'questions': [
     {
       "id": 0,
-      "title": "Which companion actually saw the Dajjal in real life?",
+      "title":
+          "About which companion did the Prophet SAW say that when the shaytan (satin) sees him taking a path, he takes another path?",
       "image": "",
       "answers": [
         "Tamim Al-Dari RA",
@@ -14,69 +15,80 @@ var level19 = {
         "Umar Ibn Khatab RA",
         "Abdullah Ibn Umar RA"
       ],
-      "right_answer": {"answer": 0, "explain": ""}
+      "right_answer": {"answer": 2, "explain": ""}
     },
     {
       "id": 1,
       "title":
-          "For how many years did Anas bin Malik may Allah be pleased with him serve Prophet Muhammad peace be upon him?",
+          "Which companion did the prophet give the nickname \"Abu Turab\"?",
       "image": "",
-      "answers": ["10 years", "7 years", "2 years", "23 years"],
-      "right_answer": {"answer": 0, "explain": ""}
+      "answers": [
+        "Tamim Al-Dari RA",
+        "Ali Ibn Abi Taalib RA",
+        "Umar Ibn Khatab RA",
+        "Abdullah Ibn Umar RA"
+      ],
+      "right_answer": {"answer": 1, "explain": ""}
     },
     {
       "id": 2,
       "title":
-          "How many idols were around the Ka'bah when the Muslims entered Makkah on the day of Al-Fat'h?",
+          "Regarding which companion did the Prophet SAW say that the angels are shy from him?",
       "image": "",
       "answers": [
-        "100 idols",
-        "1000 idols",
-        "73 idols",
-        "360 idols",
+        "AbdulRahman bin Awf may Allah be pleased with him",
+        "Uthman bin Affan may Allah be pleased with him",
+        "Dihya ibn Khalifa Al-Kalbi may Allah be pleased with him",
+        "Muadh bin Jabal may Allah be pleased with him",
       ],
-      "right_answer": {"answer": 3, "explain": ""}
+      "right_answer": {"answer": 1, "explain": ""}
     },
     {
       "id": 3,
       "title":
-          "After the hijrah to Medina, how many times did the Prophet Muhammad peace be upon him do Umrah?",
+          "Which two companions are buried right next to Prophet Muhammad peace be upon him?",
       "image": "",
       "answers": [
-        "0 times",
-        "1 times",
-        "7 times",
-        "4 times",
+        "Uthman bin Affan and AbdulRahman bin Awf may Allah be pleased with them",
+        "Umar Ibn Khatab and Abu Bakr may Allah be pleased with them",
+        "Uthman bin Affan and Ali bin Abu Taalib may Allah be pleased with them",
+        "Zayd and Muadh bin Jabal may Allah be pleased with them"
       ],
-      "right_answer": {"answer": 3, "explain": ""}
+      "right_answer": {"answer": 1, "explain": ""}
     },
     {
       "id": 4,
       "title":
-          "After the Hijrah to Medina, how long did Prophet Muhammad peace be upon him and his companions may Allah be pleased with them pray towards Jerusalem before the Qiblah was changed towards the Ka'ba in Makkah?",
+          "Which companion married two of Prophet Muhammad's SAW daughters?",
       "image": "",
-      "answers": ["22 months", "5 years", "23 years", "16 or 17 months"],
-      "right_answer": {"answer": 3, "explain": ""}
+      "answers": [
+        "AbdulRahman bin Awf may Allah be pleased with him",
+        "Uthman bin Affan may Allah be pleased with him",
+        "Dihya ibn Khalifa Al-Kalbi may Allah be pleased with him",
+        "Muadh bin Jabal may Allah be pleased with him",
+      ],
+      "right_answer": {"answer": 1, "explain": ""}
     },
     {
       "id": 5,
-      "title":
-          "How many companions were with the Prophet Muhammad peace be upon him during the battle of Badr?",
+      "title": "To which companion did the Prophet Muhammad peace be upon him say: "
+          "\"you are to me like Harun was to Musa, except that there is no prophet after me.\"?",
       "image": "",
       "answers": [
-        "319 companions",
-        "100 companions",
-        "73 companions",
-        "1 companion"
+        "AbdulRahman bin Awf may Allah be pleased with him",
+        "Uthman bin Affan may Allah be pleased with him",
+        "Umar Ibn Khatab and Abu Bakr may Allah be pleased with them",
+        "Ali bin Abi Taalib may Allah be pleased with him",
       ],
-      "right_answer": {"answer": 0, "explain": ""}
+      "right_answer": {"answer": 3, "explain": ""}
     },
     {
       "id": 6,
-      "title": "The throne of Allah shook when which companion died?",
+      "title":
+          "According to the Prophet SAW, which companion is the most compassionate of his Ummah towards his Ummah?",
       "image": "",
       "answers": [
-        "Sa'd bin Ma'az RA",
+        "Abu Bakr bin Abi Quhafa RA",
         "Ali bin Abi Taalib RA",
         "Umar bin Khatab RA",
         "Zaid bin Thabit RA"
@@ -85,27 +97,105 @@ var level19 = {
     },
     {
       "id": 7,
-      "title":
-          "The Prophet Muhammad peace be upon him said: \“The Khilafah after me will be for ____________ years. Then there will be Mulk (kingship) after that.\”",
+      "title": "On the day of the battle of Khaybar,"
+          " the Prophet SAW said that he will give the banner to a man at whose hands victory will come. Who was this companion?",
       "image": "",
-      "answers": ["43 years", "30 years", "10 years", "73 years"],
+      "answers": [
+        "Abu Bakr bin Abi Quhafa RA",
+        "Ali bin Abi Taalib RA",
+        "Umar bin Khatab RA",
+        "Zaid bin Thabit RA"
+      ],
       "right_answer": {"answer": 1, "explain": ""}
     },
     {
       "id": 8,
       "title":
-          "Which Prophet did Prophet Muhammad peace be upon him see in the fifth heaven during the journey of Isra2 & Mi3raj?",
+          "Prophet Muhammad peace be upon him said that if he were to take any of"
+              " the people of this world as a close friend or khaleel, then he would have taken who?",
       "image": "",
-      "answers": ["Harun AS", "Musa AS", "Isa AS", "Ibrahim AS"],
+      "answers": [
+        "Abu Bakr bin Abi Quhafa RA",
+        "Ali bin Abi Taalib RA",
+        "Umar bin Khatab RA",
+        "Zaid bin Thabit RA"
+      ],
       "right_answer": {"answer": 0, "explain": ""}
     },
     {
       "id": 9,
       "title":
-          "How many companions of the Prophet SAW were killed in the battle of Uhud?",
+          "According to the Prophet SAW, which companion is the strictest in adherence to the religion of Allah?",
       "image": "",
-      "answers": ["100 companions", "12 companions", "70 companions", "None"],
+      "answers": [
+        "Abu Bakr bin Abi Quhafa RA",
+        "Ali bin Abi Taalib RA",
+        "Umar bin Khatab RA",
+        "Zaid bin Thabit RA"
+      ],
       "right_answer": {"answer": 2, "explain": ""}
+    },
+    {
+      "id": 10,
+      "title": "Which of the 4 khalifahs ruled for the longest period of time?",
+      "image": "",
+      "answers": [
+        "Abu Bakr bin Abi Quhafa may Allah be pleased with him",
+        "Uthman bin Affan may Allah be pleased with him",
+        "Umar Ibn Khatab may Allah be pleased with him",
+        "Ali bin Abi Taalib may Allah be pleased with him",
+      ],
+      "right_answer": {"answer": 1, "explain": ""}
+    },
+    {
+      "id": 11,
+      "title":
+          "According to Prophet Muhammad SAW, who are the leaders of the mature or elderly inhabitants of Paradise?",
+      "image": "",
+      "answers": [
+        "Abu Bakr bin Abi Quhafa and Umar bin Khatab may Allah be pleased with them",
+        "Ali bin Abi Taalib and Umar bin Khatab may Allah be pleased with them",
+        "Ali bin Abi Taalib and Uthman bin Affan may Allah be pleased with them",
+        "Zaid bin Thabit and Ali bin Abi Taalib may Allah be pleased with them"
+      ],
+      "right_answer": {"answer": 0, "explain": ""}
+    },
+    {
+      "id": 12,
+      "title":
+          "The Prophet Muhammad peace be upon him said: \"If there was a prophet after me, it would have been ______________.\"",
+      "image": "",
+      "answers": [
+        "Abu Bakr bin Abi Quhafa RA",
+        "Ali bin Abi Taalib RA",
+        "Umar bin Khatab RA",
+        "Uthman bin Affan RA"
+      ],
+      "right_answer": {"answer": 2, "explain": ""}
+    },
+    {
+      "id": 13,
+      "title": "How old was Abu Bakr RA when he passed away?",
+      "image": "",
+      "answers": [
+        "63 years old",
+        "53 years old",
+        "73 years old",
+        "93 years old",
+      ],
+      "right_answer": {"answer": 0, "explain": ""}
+    },
+    {
+      "id": 14,
+      "title": "How old was Umar Bin Alkhattab RA when he was killed?",
+      "image": "",
+      "answers": [
+        "63 years old",
+        "53 years old",
+        "73 years old",
+        "93 years old",
+      ],
+      "right_answer": {"answer": 0, "explain": ""}
     },
   ]
 };

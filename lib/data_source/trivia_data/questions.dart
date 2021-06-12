@@ -15,6 +15,8 @@ import 'level_questions/level_18.dart';
 import 'level_questions/level_19.dart';
 import 'level_questions/level_2.dart';
 import 'level_questions/level_20.dart';
+import 'level_questions/level_21.dart';
+import 'level_questions/level_22.dart';
 import 'level_questions/level_5.dart';
 import 'level_questions/level_7.dart';
 import 'level_questions/level_8.dart';
@@ -41,4 +43,6 @@ Map<String, dynamic> triviaQuestions = {
   "Level 18": level18,
   "Level 19": level19,
   "Level 20": level20,
+  "Level 21": level21,
+  "Level 22": level22,
 };

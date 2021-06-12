@@ -80,7 +80,9 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
   }
 
   unlockNextLevel() async {
-    await UserDataSharedPref.sharedPrf.setUnlockedLevels(widget.nextLevel);
+    if (widget.nextLevel != "The end") {
+      await UserDataSharedPref.sharedPrf.setUnlockedLevels(widget.nextLevel);
+    }
   }
 
   updateUserTotalPoints(currentLevelPoints) async {

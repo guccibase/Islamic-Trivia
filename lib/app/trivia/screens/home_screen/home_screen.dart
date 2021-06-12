@@ -24,6 +24,7 @@ class _TriviaHomeScreenState extends State<TriviaHomeScreen>
   AnimationController _animationController;
 
   bool isShowDrawer = false;
+  String _points = '0';
 
   List<bool> isSelectedTheme;
   @override
@@ -34,7 +35,6 @@ class _TriviaHomeScreenState extends State<TriviaHomeScreen>
       vsync: this,
       duration: Duration(milliseconds: 800),
     );
-
     getUserPoints();
   }
 
@@ -42,7 +42,7 @@ class _TriviaHomeScreenState extends State<TriviaHomeScreen>
     var points = Provider.of<UserData>(context, listen: false);
     points.setUserPoints = await UserDataSharedPref.sharedPrf.getUserPoints();
     if (points.getUserPoints == null) points.setUserPoints = 0;
-    print(points.getUserPoints);
+    _points = points.getUserPoints.toString();
   }
 
   final GlobalKey<InnerDrawerState> _innerDrawerKey =
@@ -52,6 +52,29 @@ class _TriviaHomeScreenState extends State<TriviaHomeScreen>
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        leadingWidth: 140.0,
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            decoration: BoxDecoration(
+                color: Colors.white, borderRadius: BorderRadius.circular(16.0)),
+            child: Center(
+                child: Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: FittedBox(
+                child: Row(
+                  children: [
+                    ImageIcon(AssetImage('assets/icons/trophy.png')),
+                    Text(
+                      '$_points ${_points == 1 ? 'Point' : 'Points'}',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+            )),
+          ),
+        ),
         backgroundColor: Color(0xff76A5FF),
         elevation: 10,
         shape: RoundedRectangleBorder(

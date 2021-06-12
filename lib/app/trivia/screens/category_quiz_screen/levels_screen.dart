@@ -144,6 +144,18 @@ class LevelsScreen extends StatelessWidget {
           nextLevel: "Level 21",
           imageLink: ImageLinks().basmalah,
         ),
+        Level(
+          index: 19,
+          name: "Level 21",
+          nextLevel: "Level 22",
+          imageLink: ImageLinks().basmalah,
+        ),
+        Level(
+          index: 19,
+          name: "Level 22",
+          nextLevel: "The end",
+          imageLink: ImageLinks().basmalah,
+        ),
       ],
     );
   }
