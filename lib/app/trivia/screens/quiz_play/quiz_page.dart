@@ -4,7 +4,6 @@ import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:islamic_trivia/app/trivia/model/response_trivia_question.dart';
-import 'package:islamic_trivia/generated/l10n.dart';
 import 'package:provider/provider.dart';
 
 import 'page_view_holder.dart';
@@ -13,9 +12,9 @@ class QuizPage extends StatefulWidget {
   final int index;
   final TriviaQuestion listQuiz;
   final Function(bool) onSelected;
-  final Function onSkip;
+  final Function guidelines;
   const QuizPage(
-      {Key key, this.listQuiz, this.onSelected, this.index, this.onSkip})
+      {Key key, this.listQuiz, this.onSelected, this.index, this.guidelines})
       : super(key: key);
   @override
   _QuizPageState createState() => _QuizPageState();
@@ -87,7 +86,7 @@ class _QuizPageState extends State<QuizPage> {
                 child: FlatButton(
                   color: Color(0xffFFB31F),
                   onPressed: () {
-                    widget.onSkip();
+                    widget.guidelines();
                   },
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.only(
@@ -95,12 +94,7 @@ class _QuizPageState extends State<QuizPage> {
                           topLeft: Radius.circular(7),
                           bottomLeft: Radius.circular(7),
                           bottomRight: Radius.circular(17))),
-                  child: Text(
-                    S.current.skip,
-                    style: Theme.of(context).textTheme.headline6.copyWith(
-                          fontWeight: FontWeight.w600,
-                        ),
-                  ),
+                  child: Icon(Icons.info_outline_rounded),
                 )),
           ],
         ),

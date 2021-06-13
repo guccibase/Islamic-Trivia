@@ -114,7 +114,7 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
           height: AppBar().preferredSize.height,
         ),
         Text(
-          S.current.trivia_result,
+          'Result',
           style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
         ),
         SizedBox(
@@ -233,7 +233,7 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
           Padding(
             padding: const EdgeInsets.only(top: 8),
             child: Text(
-              S.current.required_points.toUpperCase(),
+              'MINIMUM REQUIRED POINTS',
               style: Theme.of(context)
                   .textTheme
                   .headline6
@@ -247,7 +247,7 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
           Padding(
             padding: const EdgeInsets.only(top: 8),
             child: Text(
-              S.current.your_points.toUpperCase(),
+              'YOUR POINTS',
               style: Theme.of(context)
                   .textTheme
                   .headline6

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:islamic_trivia/app/trivia/categories.dart';
 import 'package:islamic_trivia/app/trivia/screens/quiz_play/quiz_play_screen.dart';
 import 'package:islamic_trivia/data_source/assets_link/src/image_links.dart';
-import 'package:islamic_trivia/generated/l10n.dart';
 
 class DailyQuizScreen extends StatelessWidget {
   @override
@@ -14,9 +13,11 @@ class DailyQuizScreen extends StatelessWidget {
             onPressed: () {
               Navigator.pop(context);
             }),
-        title: Text(S.current.daily_quiz),
+        title: Text("Daily bonus points"),
       ),
-      body: _bodyMain(context),
+      body: Center(
+        child: Text("Coming soon..."),
+      ),
     );
   }
 

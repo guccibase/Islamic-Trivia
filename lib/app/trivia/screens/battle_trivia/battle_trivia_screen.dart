@@ -165,7 +165,7 @@ class _BattleQuizScreenState extends State<BattleQuizScreen> {
                       val: val,
                       duration: Duration(milliseconds: 800));
                 },
-                onSkip: () {
+                guidelines: () {
                   onSelected(
                       length: list.length,
                       val: false,

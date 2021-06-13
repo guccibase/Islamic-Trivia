@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islamic_trivia/app/trivia/model/response_trivia_question.dart';
+import 'package:islamic_trivia/app/trivia/screens/quiz_play/quidelinesScreen.dart';
 import 'package:islamic_trivia/app/trivia/screens/quiz_play/quiz_page.dart';
 import 'package:islamic_trivia/app/trivia/screens/widget/countdown_progress.dart';
 import 'package:islamic_trivia/data_source/api_service/src/quiz_api.dart';
@@ -158,12 +159,8 @@ class _QuizPlayScreenState extends State<QuizPlayScreen> {
                           val: val,
                           duration: Duration(milliseconds: 800));
                     },
-                    onSkip: () {
-                      onSelected(
-                          length: widget.totalQuestions,
-                          val: false,
-                          duration: Duration(milliseconds: 10));
-                    },
+                    guidelines: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => Guidelines())),
                   );
                 }),
           ),

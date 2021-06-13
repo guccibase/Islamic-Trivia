@@ -1,7 +1,5 @@
-import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:islamic_trivia/app/trivia/provider/battle_trivia_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -46,13 +44,13 @@ class _MyAppState extends State<MyApp> {
             theme: appTheme.themeData,
             localizationsDelegates: [
               S.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
+              // GlobalMaterialLocalizations.delegate,
+              // GlobalWidgetsLocalizations.delegate,
+              // GlobalCupertinoLocalizations.delegate,
             ],
-            supportedLocales: S.delegate.supportedLocales,
-            builder: BotToastInit(),
-            navigatorObservers: [BotToastNavigatorObserver()],
+            // supportedLocales: S.delegate.supportedLocales,
+            // builder: BotToastInit(),
+            // navigatorObservers: [BotToastNavigatorObserver()],
             home: TriviaHomeScreen()),
       );
     });

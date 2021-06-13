@@ -1,7 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -15,23 +14,22 @@ import 'intl/messages_all.dart';
 
 class S {
   S();
-
+  
   static S current;
-
-  static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
+  
+  static const AppLocalizationDelegate delegate =
+    AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false)
-        ? locale.languageCode
-        : locale.toString();
-    final localeName = Intl.canonicalizedLocale(name);
+    final name = (locale.countryCode?.isEmpty ?? false) ? locale.languageCode : locale.toString();
+    final localeName = Intl.canonicalizedLocale(name); 
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
       S.current = S();
-
+      
       return S.current;
     });
-  }
+  } 
 
   static S of(BuildContext context) {
     return Localizations.of<S>(context, S);
@@ -620,8 +618,8 @@ class S {
   /// `Play Quiz`
   String get play_quiz {
     return Intl.message(
-      'Levels',
-      name: 'Levels',
+      'Play Quiz',
+      name: 'play_quiz',
       desc: '',
       args: [],
     );
@@ -630,8 +628,8 @@ class S {
   /// `Battle Quiz`
   String get battle_quiz {
     return Intl.message(
-      'Battle',
-      name: 'Battle',
+      'Battle Quiz',
+      name: 'battle_quiz',
       desc: '',
       args: [],
     );
@@ -640,8 +638,8 @@ class S {
   /// `Daily Quiz`
   String get daily_quiz {
     return Intl.message(
-      'Daily Bonus Points',
-      name: 'Bonus Points',
+      'Daily Quiz',
+      name: 'daily_quiz',
       desc: '',
       args: [],
     );
@@ -687,31 +685,21 @@ class S {
     );
   }
 
-  /// `Trivia result`
-  String get trivia_result {
+  /// `Quiz result`
+  String get quiz_result {
     return Intl.message(
-      'Result',
-      name: 'trivia_result',
+      'Quiz result',
+      name: 'quiz_result',
       desc: '',
       args: [],
     );
   }
 
-  /// `Your Points`
-  String get your_points {
+  /// `Your Score`
+  String get your_score {
     return Intl.message(
-      'Your Points',
-      name: 'your_points',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `required points`
-  String get required_points {
-    return Intl.message(
-      'Minimum required points',
-      name: 'required_ponts',
+      'Your Score',
+      name: 'your_score',
       desc: '',
       args: [],
     );
