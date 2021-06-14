@@ -16,6 +16,7 @@ String generalGuidelines0 =
     'SAW = Sallallahu Alaihi Wasallam\n'
     'AS = Alayhis Salaam\n'
     'PBUH = Peace be upon him\n'
+    'PBUT = Peace be upon them\n'
     'RA = Radhi Allahu \'anhu/ Radhi Allahu \'anhum/ Radhi Allahu \'anha\n'
     'RH = Rahimahullah\n';
 

@@ -61,7 +61,7 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
       unlockNextLevel();
       int prevPoints = int.parse(points[widget.levelIndex]);
       if (prevPoints < widget.acquiredPoints) {
-        // acquired more points that last time user played same level
+        // acquired more points than last time user played same level
         morePointsThisTime = true;
 
         int pointDiff = widget.acquiredPoints - prevPoints;
@@ -133,7 +133,7 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
             children: [
               Container(
                 height: MediaQuery.of(context).size.height,
-                child: 100 > widget.acquiredPoints
+                child: widget.acquiredPoints < widget.requiredPoints
                     ? null
                     : Image.asset(
                         ImageLinks().congrats,

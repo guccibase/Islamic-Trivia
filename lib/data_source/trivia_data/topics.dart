@@ -3,7 +3,7 @@ Map<String, String> topicDescription = {
       "Anything that is related to the Quran, from its content, to its revelation or its reasons, to the virtues of the surahs, or anything related to the Quran in any way.",
   'Seerah of the Prophet SAW':
       'The prophet\'s life. This includes his actions, statements, any events or incidents that took place during his life. This also includes other people that were present, like his companions and anything related to them, or any other person or event that took place during the prophet\'s life.',
-  'Lives of the Prophets AS':
+  'Lives of the Prophets PBUT':
       'This includes ALL the prophets, from Adam to Muhammad and passing through every prophet in between, peace be upon them all. Anything relating to their lives, or their description, or any incident that happened to any of them.',
   'Akhira/Hereafter':
       'This includes the minor and major signs of the day of judgment, death and anything related to the grave, the day of judgment or anything related to it or the events that take place, anything related to heaven and hell and their description, or any other incidents or details pertaining to the day of judgment.',

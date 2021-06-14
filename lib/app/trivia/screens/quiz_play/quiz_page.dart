@@ -135,11 +135,20 @@ class _QuizPageState extends State<QuizPage> {
             AnimatedContainer(
               duration: Duration(milliseconds: 400),
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+              height: widget.listQuiz.answers[index].length < 50
+                  ? 70.0
+                  : widget.listQuiz.answers[index].length > 49 &&
+                          widget.listQuiz.answers[index].length < 60
+                      ? 70
+                      : widget.listQuiz.answers[index].length > 59 &&
+                              widget.listQuiz.answers[index].length < 80
+                          ? 70
+                          : 120.0,
               width: isClicks[index]
                   ? MediaQuery.of(context).size.width
-                  : index == widget.listQuiz.rightAnswer.answer && isAnswer
-                      ? MediaQuery.of(context).size.width
-                      : 0,
+                  // : index == widget.listQuiz.rightAnswer.answer && isAnswer
+                  //     ? MediaQuery.of(context).size.width
+                  : 0,
               decoration: BoxDecoration(
                 color: Colors.white,
                 gradient: index == widget.listQuiz.rightAnswer.answer
@@ -155,10 +164,7 @@ class _QuizPageState extends State<QuizPage> {
               ),
               child: Text(
                 '',
-                style: Theme.of(context)
-                    .textTheme
-                    .headline6
-                    .copyWith(fontWeight: FontWeight.w600),
+                style: TextStyle(color: Colors.transparent),
               ),
             ),
             Padding(
@@ -168,14 +174,13 @@ class _QuizPageState extends State<QuizPage> {
                 children: [
                   Flexible(
                     fit: FlexFit.loose,
-                    child: FittedBox(
+                    child: Center(
                       child: Text(
                         widget.listQuiz.answers[index],
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                             color: isAnswer
-                                ? isClicks[index] ||
-                                        index ==
-                                            widget.listQuiz.rightAnswer.answer
+                                ? index == widget.listQuiz.rightAnswer.answer
                                     ? Colors.white
                                     : Theme.of(context)
                                         .textTheme
@@ -224,7 +229,11 @@ class _QuizPageState extends State<QuizPage> {
                                 size: 12,
                                 color: Colors.white,
                               )
-                        : Container(),
+                        : Icon(
+                            Icons.clear,
+                            size: 12,
+                            color: Colors.white,
+                          ),
                   )
                 ],
               ),

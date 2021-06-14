@@ -1,7 +1,7 @@
 var level7 = {
   'total points': 300,
   'minimum points required': 240,
-  'topic': 'Lives of the Prophets AS',
+  'topic': 'Lives of the Prophets PBUT',
   'number of questions': 10,
   'questions': [
     {

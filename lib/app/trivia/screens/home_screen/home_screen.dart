@@ -38,13 +38,14 @@ class _TriviaHomeScreenState extends State<TriviaHomeScreen>
     var points = Provider.of<UserData>(context, listen: false);
     points.setUserPoints = await UserDataSharedPref.sharedPrf.getUserPoints();
     if (points.getUserPoints == null) points.setUserPoints = 0;
-    _points = points.getUserPoints.toString();
   }
 
   // final GlobalKey<InnerDrawerState> _innerDrawerKey =
   //     GlobalKey<InnerDrawerState>();
   @override
   Widget build(BuildContext context) {
+    var points = Provider.of<UserData>(context, listen: false);
+    _points = points.getUserPoints.toString();
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
