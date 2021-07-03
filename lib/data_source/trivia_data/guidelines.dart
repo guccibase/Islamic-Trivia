@@ -1,11 +1,11 @@
 String generalGuideline =
     'Each correct answer will amount to 30 points and 10 points will be subtracted for every wrong answer or a time run out.'
     ' Each level has a minimum required amount of points to unlock the next level.'
-    ' And only after successfully acquiring the required points at the end of the level '
-    'that the points be added to your overall points that will be displayed on the homepage';
+    ' And only after successfully acquiring the required points at the end of each level '
+    'that the points will be added to your overall points, the points displayed on the homepage';
 
 String generalGuidelines =
-    'Only authentic information that was mentioned in authentic narrations will be used or '
+    'Only information from the Qur\'an and authentic information that was mentioned in authentic narrations will be used or '
     'accepted as a correct answer to any of the questions. Some information or answers that are not authentic will'
     ' not be accepted even if it is well known or wide spread. This will eliminate any problems that might result '
     'from having multiple possible answers to one question, most of which are not correct anyways.';
@@ -40,4 +40,6 @@ String generalGuidelines3 =
     ' So not every book will be a good book to review from, and a book that compiled ALL the different narrations on one subject,'
     ' including the authentic, weak, and fabricated narrations, will not be a good book to study from since it contains incorrect'
     ' information as well as the authentic information. A book which does not mention a lot of narrations will not be helpful '
-    'either, as most of the questions will be based off of authentic narrations of the hadeeth of the Prophet Muhammad peace be upon him.';
+    'either, as most of the questions will be based off of authentic narrations of the hadeeth of the Prophet Muhammad peace be upon him.'
+    '\n\n\n'
+    'For any questions and corrections, contact us through the email from the app stores';

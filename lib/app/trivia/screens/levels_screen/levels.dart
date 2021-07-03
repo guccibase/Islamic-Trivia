@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:islamic_trivia/app/trivia/screens/levels_screen/start_screen.dart';
+import 'package:islamic_trivia/app/trivia/screens/start_screen/start_screen.dart';
 import 'package:islamic_trivia/data_source/memory_service/memory_service.dart';
 
 class Level extends StatefulWidget {

@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.umratech.islamic_trivia">
    <application
-        android:label="islamic_trivia"
+        android:label="Islamic Trivia"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

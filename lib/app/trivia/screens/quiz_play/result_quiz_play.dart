@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:islamic_trivia/app/app.dart';
 import 'package:islamic_trivia/app/trivia/provider/battle_trivia_screen.dart';
+import 'package:islamic_trivia/app/trivia/screens/levels_screen/levels_screen.dart';
 import 'package:islamic_trivia/data_source/assets_link/assets_links.dart';
 import 'package:islamic_trivia/data_source/memory_service/memory_service.dart';
 import 'package:islamic_trivia/generated/l10n.dart';

@@ -16,7 +16,7 @@ class DailyQuizScreen extends StatelessWidget {
         title: Text("Daily bonus points"),
       ),
       body: Center(
-        child: Text("Coming soon..."),
+        child: Text("Coming soon inshaAllah.."),
       ),
     );
   }

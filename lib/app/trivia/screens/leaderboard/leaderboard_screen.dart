@@ -28,7 +28,7 @@ class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
       children: [
         _header(context),
         Center(
-          child: Text("Coming soon.."),
+          child: Text("Coming soon inshaAllah.."),
         )
       ],
     );
