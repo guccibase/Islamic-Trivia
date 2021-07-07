@@ -118,9 +118,6 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
           'Result',
           style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
         ),
-        SizedBox(
-          height: 10,
-        ),
         Expanded(
             child: AnimatedBuilder(
           animation: _animationController,
@@ -142,10 +139,10 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
                       ),
               ),
               Positioned(
-                  top: 50,
+                  top: 30,
                   left: 60,
                   right: 60,
-                  bottom: 180,
+                  bottom: 120,
                   child: widget.numberOfQuestions != null
                       ? _playQuizResult(context)
                       : _battleQuizResult(context)),
@@ -229,122 +226,137 @@ class _ResultQuizPlayState extends State<ResultQuizPlay>
                 Theme.of(context).backgroundColor,
                 Theme.of(context).backgroundColor.withOpacity(0.65)
               ])),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 8),
-            child: Text(
-              'MINIMUM REQUIRED POINTS',
-              style: Theme.of(context)
-                  .textTheme
-                  .headline6
-                  .copyWith(fontWeight: FontWeight.w600),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: Text(
+                'MINIMUM REQUIRED POINTS',
+                style: Theme.of(context)
+                    .textTheme
+                    .headline6
+                    .copyWith(fontWeight: FontWeight.w600),
+              ),
             ),
-          ),
-          Text(
-            "${widget.requiredPoints}",
-            style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 8),
-            child: Text(
-              'YOUR POINTS',
-              style: Theme.of(context)
-                  .textTheme
-                  .headline6
-                  .copyWith(fontWeight: FontWeight.w600),
-            ),
-          ),
-          CircularPercentIndicator(
-            radius: 170.0,
-            animation: true,
-            animationDuration: 1000,
-            lineWidth: 35.0,
-            percent: widget.acquiredPoints > 0
-                ? widget.acquiredPoints / widget.totalPoints
-                : 0.0,
-            center: new Text(
-              "${widget.acquiredPoints}/${widget.totalPoints}",
+            Text(
+              "${widget.requiredPoints}",
               style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
             ),
-            circularStrokeCap: CircularStrokeCap.round,
-            backgroundColor: Color(0xffD6D6D6),
-            progressColor: Color(0xff3277FC),
-          ),
-          Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: widget.acquiredPoints < widget.requiredPoints
-                  ? Column(
-                      children: [
-                        Text(
-                          repeatedLevel ? '' : '${failMsgs[randomNum]}',
-                          textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.headline6.copyWith(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 10.0,
-                              color: Colors.red),
-                        ),
-                        Text(
-                          "Try again!",
-                          style: Theme.of(context).textTheme.headline6.copyWith(
-                              fontWeight: FontWeight.w600, fontSize: 20.0),
-                        ),
-                        Text(
-                          '${failEncouragementMsgs[randomNum]}',
-                          textAlign: TextAlign.center,
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline6
-                              .copyWith(fontWeight: FontWeight.w600),
-                        ),
-                      ],
-                    )
-                  : Column(
-                      children: [
-                        Text(
-                          '${passMsgs[randomNum]}',
-                          textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.headline6.copyWith(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16.0,
-                              color: Colors.green),
-                        ),
-                        repeatedLevel && morePointsThisTime
-                            ? Text(
-                                "You've done better this time",
-                                textAlign: TextAlign.center,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline6
-                                    .copyWith(fontWeight: FontWeight.w600),
-                              )
-                            : repeatedLevel && !morePointsThisTime
-                                ? Text(
-                                    "",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headline6
-                                        .copyWith(fontWeight: FontWeight.w600),
-                                  )
-                                : Text(
-                                    "You've unlocked the next level",
-                                    textAlign: TextAlign.center,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headline6
-                                        .copyWith(fontWeight: FontWeight.w600),
-                                  ),
-                        Text(
-                          '${encouragementMsgs[randomNum]}',
-                          textAlign: TextAlign.center,
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline6
-                              .copyWith(fontWeight: FontWeight.w600),
-                        ),
-                      ],
-                    )),
-        ],
+            Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: Text(
+                'YOUR POINTS',
+                style: Theme.of(context)
+                    .textTheme
+                    .headline6
+                    .copyWith(fontWeight: FontWeight.w600),
+              ),
+            ),
+            CircularPercentIndicator(
+              radius: 170.0,
+              animation: true,
+              animationDuration: 1000,
+              lineWidth: 35.0,
+              percent: widget.acquiredPoints > 0
+                  ? widget.acquiredPoints / widget.totalPoints
+                  : 0.0,
+              center: new Text(
+                "${widget.acquiredPoints}/${widget.totalPoints}",
+                style:
+                    new TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+              ),
+              circularStrokeCap: CircularStrokeCap.round,
+              backgroundColor: Color(0xffD6D6D6),
+              progressColor: Color(0xff3277FC),
+            ),
+            Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: widget.acquiredPoints < widget.requiredPoints
+                    ? Column(
+                        children: [
+                          Text(
+                            repeatedLevel ? '' : '${failMsgs[randomNum]}',
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline6
+                                .copyWith(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 10.0,
+                                    color: Colors.red),
+                          ),
+                          Text(
+                            "Try again!",
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline6
+                                .copyWith(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 20.0),
+                          ),
+                          Text(
+                            '${failEncouragementMsgs[randomNum]}',
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline6
+                                .copyWith(fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      )
+                    : Column(
+                        children: [
+                          Text(
+                            '${passMsgs[randomNum]}',
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline6
+                                .copyWith(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16.0,
+                                    color: Colors.green),
+                          ),
+                          repeatedLevel && morePointsThisTime
+                              ? Text(
+                                  "You've done better this time",
+                                  textAlign: TextAlign.center,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headline6
+                                      .copyWith(fontWeight: FontWeight.w600),
+                                )
+                              : repeatedLevel && !morePointsThisTime
+                                  ? Text(
+                                      "",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headline6
+                                          .copyWith(
+                                              fontWeight: FontWeight.w600),
+                                    )
+                                  : Text(
+                                      "You've unlocked the next level",
+                                      textAlign: TextAlign.center,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headline6
+                                          .copyWith(
+                                              fontWeight: FontWeight.w600),
+                                    ),
+                          Text(
+                            '${encouragementMsgs[randomNum]}',
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline6
+                                .copyWith(fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      )),
+          ],
+        ),
       ),
     );
   }

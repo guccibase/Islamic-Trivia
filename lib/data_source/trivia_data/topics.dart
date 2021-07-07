@@ -1,6 +1,6 @@
 Map<String, String> topicDescription = {
   'Qur\'an':
-      "Anything that is related to the Quran, from its content, to its revelation or its reasons, to the virtues of the surahs, or anything related to the Quran in any way.",
+      "Anything that is related to the Qur\'an, from its content, to its revelation or its reasons, to the virtues of the surahs, or anything related to the Qur\'an in any way.",
   'Seerah of the Prophet SAW':
       'The prophet\'s life. This includes his actions, statements, any events or incidents that took place during his life. This also includes other people that were present, like his companions and anything related to them, or any other person or event that took place during the prophet\'s life.',
   'Lives of the Prophets PBUT':

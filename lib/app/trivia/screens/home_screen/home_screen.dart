@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islamic_trivia/app/app.dart';
 import 'package:islamic_trivia/app/trivia/provider/battle_trivia_screen.dart';
-import 'package:islamic_trivia/app/trivia/screens/battle_trivia/init_battle_screen.dart';
-import 'package:islamic_trivia/app/trivia/screens/daily_quiz/daily_quiz_screen.dart';
 import 'package:islamic_trivia/app/trivia/screens/levels_screen/levels_screen.dart';
 import 'package:islamic_trivia/app/trivia/screens/quiz_play/quidelinesScreen.dart';
 import 'package:islamic_trivia/data_source/assets_link/src/image_links.dart';
@@ -115,29 +113,29 @@ class _TriviaHomeScreenState extends State<TriviaHomeScreen>
         SizedBox(
           height: 10,
         ),
-        buttonMain(
-            context: context,
-            text: "Battle",
-            navigatorTo: InitBattleScreen(
-              context: context,
-            )),
-        SizedBox(
-          height: 10,
-        ),
-        buttonMain(
-            context: context,
-            text: "Daily Bonus Points",
-            navigatorTo: DailyQuizScreen()),
-        SizedBox(
-          height: 20,
-        ),
-        buttonMain(
-            context: context,
-            text: "Leaderboards",
-            navigatorTo: LeaderBoardScreen()),
-        SizedBox(
-          height: 10,
-        ),
+        // buttonMain(
+        //     context: context,
+        //     text: "Battle",
+        //     navigatorTo: InitBattleScreen(
+        //       context: context,
+        //     )),
+        // SizedBox(
+        //   height: 10,
+        // ),
+        // buttonMain(
+        //     context: context,
+        //     text: "Daily Bonus Points",
+        //     navigatorTo: DailyQuizScreen()),
+        // SizedBox(
+        //   height: 20,
+        // ),
+        // buttonMain(
+        //     context: context,
+        //     text: "Leaderboards",
+        //     navigatorTo: LeaderBoardScreen()),
+        // SizedBox(
+        //   height: 10,
+        // ),
         buttonMain(
             context: context,
             text: "General guidelines",
